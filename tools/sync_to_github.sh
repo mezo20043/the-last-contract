@@ -21,6 +21,8 @@ fi
 # ٢) مزامنة (إضافة/تحديث فقط — بدون --delete عشان مفيش حذف تلقائي)
 rsync -a --checksum \
   --exclude '.cache/' --exclude '.local/' --exclude '.config/' --exclude '.git/' \
+  --exclude '.ssh/' --exclude '.nuget/' --exclude '.bashrc' --exclude '.profile' \
+  --exclude '.sudo_as_admin_successful' --exclude '.python_history' --exclude '.*_history' \
   --exclude '*.zip' --exclude '*.bundle' --exclude '*.alf' --exclude 'lic/' \
   --exclude 'login_*.log' --exclude 'unity_login_out.log' \
   --exclude 'last_url.txt' --exclude 'url_now.txt' \
