@@ -1,0 +1,4 @@
+man-base-character-rigged | shader=Universal Render Pipeline/Lit | BaseMap=man-base-character-rigged_basecolor | Normal=man-base-character-rigged_normal | MetallicGloss=<NULL> | smoothness=0.50 | metallic=0.00
+woman-rigged | shader=Universal Render Pipeline/Lit | BaseMap=woman-rigged_basecolor | Normal=woman-rigged_normal | MetallicGloss=<NULL> | smoothness=0.50 | metallic=0.00
+elderly-man-rigged | shader=Universal Render Pipeline/Lit | BaseMap=elderly-man-rigged_basecolor | Normal=elderly-man-rigged_normal | MetallicGloss=<NULL> | smoothness=0.50 | metallic=0.00
+man-rigged | shader=Universal Render Pipeline/Lit | BaseMap=man-rigged_basecolor | Normal=man-rigged_normal | MetallicGloss=<NULL> | smoothness=0.50 | metallic=0.00

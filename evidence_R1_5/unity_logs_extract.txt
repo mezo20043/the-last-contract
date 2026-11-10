@@ -1,0 +1,21 @@
+unity_import.log:Start importing Assets/_Project/Resources/Characters/laila/woman-rigged.fbx using Guid(54b969dec9d11c51e89fc2946fa08c98) (FBXImporter)[TLC/Import] إعداد Humanoid: woman-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/murad/elderly-man-rigged.fbx using Guid(65975604b5059155c99e00b6262839b5) (FBXImporter)[TLC/Import] إعداد Humanoid: elderly-man-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/adam/man-base-character-rigged.fbx using Guid(c868b684beda268a2a60b2fb94afc406) (FBXImporter)[TLC/Import] إعداد Humanoid: man-base-character-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/yassin/man-rigged.fbx using Guid(bbecba5eed6c76e31a5fc0dcbd33fa56) (FBXImporter)[TLC/Import] إعداد Humanoid: man-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/laila/woman-rigged.fbx using Guid(54b969dec9d11c51e89fc2946fa08c98) (FBXImporter)[TLC/Import] إعداد Humanoid: woman-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/murad/elderly-man-rigged.fbx using Guid(65975604b5059155c99e00b6262839b5) (FBXImporter)[TLC/Import] إعداد Humanoid: elderly-man-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/adam/man-base-character-rigged.fbx using Guid(c868b684beda268a2a60b2fb94afc406) (FBXImporter)[TLC/Import] إعداد Humanoid: man-base-character-rigged.fbx
+unity_import.log:Start importing Assets/_Project/Resources/Characters/yassin/man-rigged.fbx using Guid(bbecba5eed6c76e31a5fc0dcbd33fa56) (FBXImporter)[TLC/Import] إعداد Humanoid: man-rigged.fbx
+unity_import.log:		ImportManagerImport: 47923.916ms (692.394ms without children)
+unity_import.log:		CompileScripts: 45568.746ms
+unity_import.log:Exiting batchmode successfully now!
+unity_validate.log:		CompileScripts: 2326.843ms
+unity_validate.log:[TLC/R1.5] man-base-character-rigged → avatar valid=True human=True · clips=2 · shaders=Universal Render Pipeline/Lit
+unity_validate.log:[TLC/R1.5] woman-rigged → avatar valid=True human=True · clips=2 · shaders=Universal Render Pipeline/Lit
+unity_validate.log:[TLC/R1.5] elderly-man-rigged → avatar valid=True human=True · clips=2 · shaders=Universal Render Pipeline/Lit
+unity_validate.log:[TLC/R1.5] man-rigged → avatar valid=True human=True · clips=2 · shaders=Universal Render Pipeline/Lit
+unity_validate.log:[TLC/R1.5] Controller: 3 states · missing motions = 0
+unity_validate.log:[TLC/R1.5] التقرير اتكتب: /var/tmp/tlc_unity/THE_LAST_CONTRACT/R1_5_VALIDATION.json · fails=0 · warnings=0
+unity_validate.log:Exiting batchmode successfully now!
+unity_render3.log:		CompileScripts: 5570.950ms
+unity_render3.log:Exiting batchmode successfully now!

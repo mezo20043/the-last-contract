@@ -1,0 +1,5 @@
+Adam: loaded ✔ · animator=✔ · avatarHuman=✔ · bones=24 · height=1.98m · mats=1
+Murad: loaded ✔ · animator=✔ · avatarHuman=✔ · bones=24 · height=2.14m · mats=1
+Laila: loaded ✔ · animator=✔ · avatarHuman=✔ · bones=54 · height=1.85m · mats=1
+Yassin: loaded ✔ · animator=✔ · avatarHuman=✔ · bones=54 · height=2.04m · mats=1
+loaded=4/4

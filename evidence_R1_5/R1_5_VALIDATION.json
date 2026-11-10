@@ -1,0 +1,71 @@
+{
+  "unityVersion": "6000.0.28f1",
+  "generatedAt": "2026-11-10T17:18:08.5351670Z",
+  "models": [
+    {
+      "path": "Assets/_Project/Resources/Characters/adam/man-base-character-rigged.fbx",
+      "existsOnDisk": true,
+      "animationType": "Human",
+      "avatarSetup": "CreateFromThisModel",
+      "avatarFound": true,
+      "avatarIsValid": true,
+      "avatarIsHuman": true,
+      "mappedHumanBones": 23,
+      "skeletonBones": 27,
+      "clips": [{"name":"walk","length":1,"humanMotion":true}, {"name":"run","length":0.625,"humanMotion":true}],
+      "materialCount": 1,
+      "shaders": ["Universal Render Pipeline/Lit"]
+    },
+    {
+      "path": "Assets/_Project/Resources/Characters/laila/woman-rigged.fbx",
+      "existsOnDisk": true,
+      "animationType": "Human",
+      "avatarSetup": "CreateFromThisModel",
+      "avatarFound": true,
+      "avatarIsValid": true,
+      "avatarIsHuman": true,
+      "mappedHumanBones": 52,
+      "skeletonBones": 57,
+      "clips": [{"name":"walk","length":1,"humanMotion":true}, {"name":"run","length":0.625,"humanMotion":true}],
+      "materialCount": 1,
+      "shaders": ["Universal Render Pipeline/Lit"]
+    },
+    {
+      "path": "Assets/_Project/Resources/Characters/murad/elderly-man-rigged.fbx",
+      "existsOnDisk": true,
+      "animationType": "Human",
+      "avatarSetup": "CreateFromThisModel",
+      "avatarFound": true,
+      "avatarIsValid": true,
+      "avatarIsHuman": true,
+      "mappedHumanBones": 22,
+      "skeletonBones": 27,
+      "clips": [{"name":"walk","length":1,"humanMotion":true}, {"name":"run","length":0.625,"humanMotion":true}],
+      "materialCount": 1,
+      "shaders": ["Universal Render Pipeline/Lit"]
+    },
+    {
+      "path": "Assets/_Project/Resources/Characters/yassin/man-rigged.fbx",
+      "existsOnDisk": true,
+      "animationType": "Human",
+      "avatarSetup": "CreateFromThisModel",
+      "avatarFound": true,
+      "avatarIsValid": true,
+      "avatarIsHuman": true,
+      "mappedHumanBones": 52,
+      "skeletonBones": 57,
+      "clips": [{"name":"walk","length":1,"humanMotion":true}, {"name":"run","length":0.625,"humanMotion":true}],
+      "materialCount": 1,
+      "shaders": ["Universal Render Pipeline/Lit"]
+    }
+  ],
+  "controller": {
+    "found": true,
+    "stateCount": 3,
+    "missingMotions": 0,
+    "parameters": ["Speed:Float", "IsRunning:Bool", "Grounded:Bool", "Talking:Bool"],
+    "states": [{"state":"Idle","motion":"idle","type":"AnimationClip"}, {"state":"Walk","motion":"walk","type":"AnimationClip"}, {"state":"Run","motion":"run","type":"AnimationClip"}]
+  },
+  "fails": 0,
+  "warnings": 0
+}
