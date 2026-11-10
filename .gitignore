@@ -17,3 +17,11 @@ Library/
 Temp/
 Logs/
 *.csproj.user
+
+# ── ملفات منزل/بيانات دخول: ممنوع رفعها ──
+.ssh/
+.nuget/
+.bashrc
+.profile
+.sudo_as_admin_successful
+.*_history
