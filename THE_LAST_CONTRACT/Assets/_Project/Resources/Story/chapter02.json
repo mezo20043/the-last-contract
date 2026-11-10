@@ -1,0 +1,610 @@
+{
+ "schemaVersion": 1,
+ "id": "chapter02",
+ "title": "الفصل الثاني — البيت القديم",
+ "entry": "ch2_from_ch1_a",
+ "nodes": [
+  {
+   "id": "ch2_from_ch1_a",
+   "type": 0,
+   "speaker": "",
+   "text": "مراد مشي قدامك، ودخل البيت الأول. بيت العيلة في العباسية اللي أبوكم سابه من ٢٠١٨، ومحدش رجع له من ساعتها.",
+   "next": "ch2_01",
+   "act": "1"
+  },
+  {
+   "id": "ch2_from_ch1_b",
+   "type": 0,
+   "speaker": "",
+   "text": "الصوت على التليفون قال عنوان، وأنا روحت. بيت العيلة في العباسية. الباب مفتوح ومحدش جوه.",
+   "next": "ch2_01",
+   "act": "1"
+  },
+  {
+   "id": "ch2_from_ch1_c",
+   "type": 0,
+   "speaker": "",
+   "text": "الراجل اللي كان واقف تحت عمود النور مشي وأنا مشيت وراه. مشي لحد بيت العيلة في العباسية، ودخل.",
+   "next": "ch2_01",
+   "act": "1"
+  },
+  {
+   "id": "ch2_01",
+   "type": 0,
+   "speaker": "",
+   "text": "الفجر لسه مطلعش. البيت ساكت سكوت حاجة متكنّسة ومغطّاة بالملاءة.\nآدم ماسك مفتاح عمره ما استخدمه.",
+   "next": "ch2_02",
+   "act": "2"
+  },
+  {
+   "id": "ch2_02",
+   "type": 0,
+   "speaker": "",
+   "text": "قبل ما يفتح الباب، سمع صوت جوه. صوت ست. صوت بتاعت اللي بيقول الحقيقة عشان مسؤولة.",
+   "next": "ch2_laila_1",
+   "act": "2"
+  },
+  {
+   "id": "ch2_laila_1",
+   "type": 0,
+   "speaker": "laila",
+   "text": "أنا عارفة إنك جاي.\nليلى قالت، ووقفت في نص الصالة مش بتتحرك.",
+   "next": "ch2_laila_2",
+   "act": "2"
+  },
+  {
+   "id": "ch2_laila_2",
+   "type": 0,
+   "speaker": "laila",
+   "text": "الحاجة الوحيدة اللي أبوكم سابها هنا هي الورق.\nغير كده البيت ده مقبرة.",
+   "next": "ch2_c1",
+   "act": "2"
+  },
+  {
+   "id": "ch2_c1",
+   "type": 1,
+   "speaker": "",
+   "text": "ليلى واقفة قصادك. عندك تلات طرق تدخل بيهم البيت.",
+   "options": [
+    {
+     "text": "«أنا عارف اللي أبوكم عمله. ومش هكدب عليكي.»",
+     "next": "ch2_l_truth",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Laila",
+        "add": 18
+       },
+       {
+        "key": "Family_Truth",
+        "add": 8
+       }
+      ]
+     },
+     "decisionId": "CH2_TRUTH_LAILA"
+    },
+    {
+     "text": "«أنا جاي أدوّر على ياسين. وانت لازم تساعديني.»",
+     "next": "ch2_l_help",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Laila",
+        "add": 8
+       },
+       {
+        "key": "Trust_Yassin",
+        "add": 6
+       }
+      ]
+     },
+     "decisionId": "CH2_ASK_HELP"
+    },
+    {
+     "text": "«مفيش حاجة مذكورة في ورق. أنا جاي أشفط البيت.»",
+     "next": "ch2_l_lie",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Laila",
+        "add": -12
+       },
+       {
+        "key": "Organization_Suspicion",
+        "add": -5
+       }
+      ]
+     },
+     "decisionId": "CH2_LIE_LAILA"
+    }
+   ],
+   "act": "2"
+  },
+  {
+   "id": "ch2_l_truth",
+   "type": 0,
+   "speaker": "laila",
+   "text": "ليلى سندت على الحيطة. مش من الحزن — من الإنهاك.\n«أنا قاعدة هنا أربع سنين بستنى حد يقولي إني مش مجنونة.»",
+   "next": "ch2_safe_1",
+   "act": "2"
+  },
+  {
+   "id": "ch2_l_help",
+   "type": 0,
+   "speaker": "laila",
+   "text": "«أنا مش هساعدك على أخوك. أنا هساعدك على أبوكم — وده حاجة تانية خالص.»",
+   "next": "ch2_safe_1",
+   "act": "2"
+  },
+  {
+   "id": "ch2_l_lie",
+   "type": 0,
+   "speaker": "laila",
+   "text": "ليلى بصت لك بصّة واحدة، وبعدها مشيت عند الشباك وسابتلك البيت.\nالكذبة الأولى في البيت ده بتتقفل زي باب.",
+   "next": "ch2_safe_1",
+   "act": "2",
+   "onEnter": {
+    "stats": [
+     {
+      "key": "Family_Truth",
+      "add": -4
+     }
+    ]
+   }
+  },
+  {
+   "id": "ch2_safe_1",
+   "type": 0,
+   "speaker": "",
+   "text": "في الحجرة التانية، في الحيطة اللي ورا الدولاب، في خزنة حديد صغيرة. الباب مش مقفول — ومتساب مفتوح بالقصد.",
+   "next": "ch2_c2",
+   "act": "2"
+  },
+  {
+   "id": "ch2_c2",
+   "type": 1,
+   "speaker": "",
+   "text": "الخزنة مفتوحة. جواها ورق.",
+   "options": [
+    {
+     "text": "أفتح الخزنة وأقرا.",
+     "next": "ch2_letters",
+     "effect": {
+      "stats": [
+       {
+        "key": "Family_Truth",
+        "add": 20
+       },
+       {
+        "key": "Yusuf_Connection",
+        "add": 10
+       }
+      ]
+     },
+     "decisionId": "CH2_OPEN_SAFE"
+    },
+    {
+     "text": "أسأل ليلى الأول إيه ده.",
+     "next": "ch2_ask_laila",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Laila",
+        "add": 10
+       }
+      ]
+     },
+     "decisionId": "CH2_ASK_LAILA_SAFE"
+    },
+    {
+     "text": "أقفلها وأمشي. الورق ده قتل ناس.",
+     "next": "ch2_refuse",
+     "effect": {
+      "stats": [
+       {
+        "key": "Family_Truth",
+        "add": -12
+       },
+       {
+        "key": "Organization_Suspicion",
+        "add": -8
+       }
+      ]
+     },
+     "decisionId": "CH2_REFUSE_SAFE"
+    }
+   ],
+   "act": "2"
+  },
+  {
+   "id": "ch2_letters",
+   "type": 0,
+   "speaker": "",
+   "text": "ثلاث رسايل بخط أبوك.\nالرسالة الأولى: «اللي عملته مش اختيار. أنا حاولت أخرّج ياسين من الملف، وفشلت.»\nالتانية: «يوسف مش عدو. يوسف هو اللي مدّ الإيد.»\nالتالتة مش بخط أبوك.",
+   "next": "ch2_letters_2",
+   "act": "2"
+  },
+  {
+   "id": "ch2_letters_2",
+   "type": 0,
+   "speaker": "",
+   "text": "التالتة مكتوبة على ورقة من نت، وبخط مزنوق:\n«لو وصلت لحد هنا، يبقى آدم فتح الخزنة. آدم — تعالى السطح. لوحدك. — ي»\n\nحرف الياء ده آدم عارفه.",
+   "next": "ch2_murad_1",
+   "act": "2",
+   "onEnter": {
+    "stats": [
+     {
+      "key": "Family_Truth",
+      "add": 10
+     },
+     {
+      "key": "Trust_Yassin",
+      "add": 12
+     }
+    ]
+   }
+  },
+  {
+   "id": "ch2_ask_laila",
+   "type": 0,
+   "speaker": "laila",
+   "text": "«الورق ده بتاع أبوك. والراجل اللي عنده عناوين كل الناس اللي دفعوا التمن هو يوسف.»\nليلى قالت الاسم زي اللي بيرمي حاجة تقيلة من إيده.",
+   "next": "ch2_ask_laila_2",
+   "act": "2"
+  },
+  {
+   "id": "ch2_ask_laila_2",
+   "type": 0,
+   "speaker": "laila",
+   "text": "«وأنا مش عارفة يوسف ده عايز منك إيه، بس هو اللي بعتلك الظرف.»",
+   "next": "ch2_murad_1",
+   "act": "2",
+   "onEnter": {
+    "stats": [
+     {
+      "key": "Yusuf_Connection",
+      "add": 12
+     },
+     {
+      "key": "Trust_Laila",
+      "add": 6
+     }
+    ]
+   }
+  },
+  {
+   "id": "ch2_refuse",
+   "type": 0,
+   "speaker": "",
+   "text": "قفلت الخزنة وحطّيت المفتاح في جيبك.\nليلى كانت واقفة في الباب وشافت. ماقالتش حاجة، وده كان أسوأ.",
+   "next": "ch2_murad_1",
+   "act": "2"
+  },
+  {
+   "id": "ch2_murad_1",
+   "type": 0,
+   "speaker": "murad",
+   "text": "مراد كان واقف عند باب البيت. مش دخل، ومش خرج.\n«أنا مش هدخل البيت ده. أنا وقفت على بابه سنة كاملة بعد ما أبوك مات.»",
+   "next": "ch2_c3",
+   "act": "2"
+  },
+  {
+   "id": "ch2_c3",
+   "type": 1,
+   "speaker": "",
+   "text": "",
+   "options": [
+    {
+     "text": "«إنت عارف يوسف مين؟»",
+     "next": "ch2_murad_known",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Murad",
+        "add": -6
+       },
+       {
+        "key": "Yusuf_Connection",
+        "add": 12
+       }
+      ]
+     },
+     "decisionId": "CH2_ASK_MURAD_YUSUF"
+    },
+    {
+     "text": "«أنا خارج من ده كله. خلاص.»",
+     "next": "ch2_murad_out",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Murad",
+        "add": 10
+       },
+       {
+        "key": "Organization_Suspicion",
+        "add": -10
+       }
+      ]
+     },
+     "decisionId": "CH2_QUIT"
+    },
+    {
+     "text": "«إنت اللي بعت الظرف؟»",
+     "next": "ch2_murad_accuse",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Murad",
+        "add": -15
+       },
+       {
+        "key": "Organization_Suspicion",
+        "add": 15
+       }
+      ]
+     },
+     "decisionId": "CH2_ACCUSE_MURAD_2"
+    }
+   ],
+   "act": "2"
+  },
+  {
+   "id": "ch2_murad_known",
+   "type": 0,
+   "speaker": "murad",
+   "text": "مراد بصّ في الأرض.\n«يوسف كان ضابط. وأنا كنت الملف اللي بيحميه. وأبوك كان اللي بيغطّيه.\nكلنا كنا في نفس الغرفة يا آدم، وانت كنت في البيت بتراجع امتحان.»",
+   "next": "ch2_yusuf_call",
+   "act": "2"
+  },
+  {
+   "id": "ch2_murad_out",
+   "type": 0,
+   "speaker": "murad",
+   "text": "«مفيش خروج يا آدم. في ناس بتخرج، بس مش بالطريقة دي.»\nمراد مشي تلات خطوات وبعدها وقف.\n«لو عايز تخرج بجد، تبقى محتاج حد يكرهك كفاية إنه يقول عليك الحقيقة.»",
+   "next": "ch2_yusuf_call",
+   "act": "2"
+  },
+  {
+   "id": "ch2_murad_accuse",
+   "type": 0,
+   "speaker": "murad",
+   "text": "مراد مابتسمش.\n«لو أنا كنت بعت الظرف، كنت هكتب اسمي عليه. أنا راجل بموت مكتوب اسمي.»\nوطلع من جيبه ظرف تاني، مقفول.",
+   "next": "ch2_yusuf_call",
+   "act": "2"
+  },
+  {
+   "id": "ch2_yusuf_call",
+   "type": 0,
+   "speaker": "",
+   "text": "التليفون رنّ. رقم مجهول تاني.\nالمرة دي آدم عرف مين قبل ما يجاوب.",
+   "next": "ch2_c4",
+   "act": "2"
+  },
+  {
+   "id": "ch2_c4",
+   "type": 1,
+   "speaker": "",
+   "text": "",
+   "options": [
+    {
+     "text": "أرد.",
+     "next": "ch2_yusuf_talk",
+     "effect": {
+      "stats": [
+       {
+        "key": "Yusuf_Connection",
+        "add": 15
+       },
+       {
+        "key": "Trust_Yassin",
+        "add": 8
+       }
+      ]
+     },
+     "decisionId": "CH2_TALK_YUSUF"
+    },
+    {
+     "text": "أسجّل المكالمة وأرد.",
+     "next": "ch2_yusuf_record",
+     "effect": {
+      "stats": [
+       {
+        "key": "Yusuf_Connection",
+        "add": 8
+       },
+       {
+        "key": "Organization_Suspicion",
+        "add": 12
+       }
+      ]
+     },
+     "decisionId": "CH2_RECORD_YUSUF"
+    },
+    {
+     "text": "أقفل وخلاص.",
+     "next": "ch2_yusuf_ignore",
+     "effect": {
+      "stats": [
+       {
+        "key": "Yusuf_Connection",
+        "add": -15
+       },
+       {
+        "key": "Trust_Yassin",
+        "add": -10
+       }
+      ]
+     },
+     "decisionId": "CH2_IGNORE_YUSUF"
+    }
+   ],
+   "act": "2"
+  },
+  {
+   "id": "ch2_yusuf_talk",
+   "type": 0,
+   "speaker": "yusuf",
+   "text": "«أنا يوسف. وأنا اللي كنت واقف في الجنازة.\nمش هطلب منك تسامحني — هطلب منك حاجة واحدة: متصدّقش مراد وهو بيتكلم عن أبوك.»",
+   "next": "ch2_yusuf_talk_2",
+   "act": "2"
+  },
+  {
+   "id": "ch2_yusuf_talk_2",
+   "type": 0,
+   "speaker": "yusuf",
+   "text": "«أبوك مات وهو بيحمي ملف. ومراد عنده الملف ده من تمان سنين، ومستخدمه يحمي نفسه.»",
+   "next": "ch2_end",
+   "act": "2"
+  },
+  {
+   "id": "ch2_yusuf_record",
+   "type": 0,
+   "speaker": "yusuf",
+   "text": "«أنا يوسف.»\n\nآدم سجّل أول تلات ثواني، وبعدها الراجل على الناحية التانية قال:\n\n«عارف إنك بتسجّل. متقلقش. أنا عايز التسجيل ده يبقى موجود.»",
+   "next": "ch2_end",
+   "act": "2",
+   "onEnter": {
+    "stats": [
+     {
+      "key": "Family_Truth",
+      "add": 12
+     }
+    ]
+   }
+  },
+  {
+   "id": "ch2_yusuf_ignore",
+   "type": 0,
+   "speaker": "",
+   "text": "قفلت الخط.\nبعدها بشوية، جالك رسالة:\n«أنا مش هتصل تاني. الباب اللي إنت بتقفله ده آخر باب.»\nولقيت نفسك بتنده على مراد.",
+   "next": "ch2_end",
+   "act": "2"
+  },
+  {
+   "id": "ch2_end",
+   "type": 0,
+   "speaker": "",
+   "text": "الساعة ٥:٤٠. البيت في العباسية، والشمس بتحاول تطلع من غير إذن.\nآدم في نص الطريق، ومحتاج يقرر هو مين النهاردة.",
+   "next": "ch2_end_choice",
+   "act": "2"
+  },
+  {
+   "id": "ch2_end_choice",
+   "type": 1,
+   "speaker": "",
+   "text": "الفجر. والورق. وليلى. ومراد. ويوسف.",
+   "options": [
+    {
+     "text": "أصدّق يوسف.",
+     "next": "ch2_end_yusuf",
+     "effect": {
+      "stats": [
+       {
+        "key": "Yusuf_Connection",
+        "add": 15
+       },
+       {
+        "key": "Family_Truth",
+        "add": 10
+       },
+       {
+        "key": "Trust_Murad",
+        "add": -10
+       }
+      ]
+     },
+     "decisionId": "CH2_BELIEVE_YUSUF"
+    },
+    {
+     "text": "أصدّق مراد.",
+     "next": "ch2_end_murad",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Murad",
+        "add": 18
+       },
+       {
+        "key": "Yusuf_Connection",
+        "add": -12
+       }
+      ]
+     },
+     "decisionId": "CH2_BELIEVE_MURAD"
+    },
+    {
+     "text": "أصدّق ليلى.",
+     "next": "ch2_end_laila",
+     "effect": {
+      "stats": [
+       {
+        "key": "Trust_Laila",
+        "add": 20
+       },
+       {
+        "key": "Family_Truth",
+        "add": 8
+       }
+      ]
+     },
+     "decisionId": "CH2_BELIEVE_LAILA"
+    }
+   ],
+   "act": "2"
+  },
+  {
+   "id": "ch2_end_yusuf",
+   "type": 0,
+   "speaker": "",
+   "text": "آدم خرج برّه البيت ومعاه ورقة واحدة. الورقة اللي مش بخط أبوه.",
+   "next": "ch2_E1",
+   "act": "2"
+  },
+  {
+   "id": "ch2_end_murad",
+   "type": 0,
+   "speaker": "",
+   "text": "آدم خرج ومعاه مراد. والراجل مش بيبص وراه.",
+   "next": "ch2_E2",
+   "act": "2"
+  },
+  {
+   "id": "ch2_end_laila",
+   "type": 0,
+   "speaker": "",
+   "text": "آدم خرج وليلى جوه. حلف عشان يسيبها برّه الحكاية، وعارف إن الدنيا مش بتسيب حد برّه.",
+   "next": "ch2_E3",
+   "act": "2"
+  },
+  {
+   "id": "ch2_E1",
+   "type": 4,
+   "endingId": "CH2_A",
+   "endingTitle": "الفصل الثاني — الورقة",
+   "endingBody": "الورقة كانت عنوان.\n\nشدّها آدم بين صوابعه لحد ما الورق بقى ناعم. وعلى العنوان: مستودع قديم على طريق الفيوم، رقم عشرين.\n\n*يوسف مش عدو. وإنت مش موظف. وإنت طلع كنت واحد من ناس كتير اتلغى الاسم بتاعهم على ورق أبيض.*",
+   "text": "",
+   "speaker": "",
+   "act": "end"
+  },
+  {
+   "id": "ch2_E2",
+   "type": 4,
+   "endingId": "CH2_B",
+   "endingTitle": "الفصل الثاني — الراجل اللي وقف على الباب",
+   "endingBody": "مراد مشي جنب آدم لحد العربية من غير كلمة.\n\nبعد ما قعدوا، قال: «أنا ما خونتش أبوك. بس أنا عشت في الخوف اللي هو ملوش شكل. سبع سنين وفي حاجة جواه بتقولي كل يوم: لو اتكلمت، اللي بيموت هو أنت.»\n\n*آدم صدّقه. وكان صح. لكن الصدق مش نفس الذنب — والعربية مشي في الشارع الهادي.*",
+   "text": "",
+   "speaker": "",
+   "act": "end"
+  },
+  {
+   "id": "ch2_E3",
+   "type": 4,
+   "endingId": "CH2_C",
+   "endingTitle": "الفصل الثاني — ليلى",
+   "endingBody": "ليلى وقفت في إطار الباب وشدّت شالها.\n\n«أنا هروح أوادي لإلياس. ثمّال لو رجعت البيت ده تاني، هيكون مجرد شقة.»\n\nقربت منه، وحطّت إيدها على كتفه، وقامت.\n\n*آدم ماقالش خلاص. وعدم الكلام ده كان أول حاجة في حياته اسمها اختيار.*",
+   "text": "",
+   "speaker": "",
+   "act": "end"
+  }
+ ]
+}

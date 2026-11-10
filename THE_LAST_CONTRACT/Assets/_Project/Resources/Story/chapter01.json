@@ -1,0 +1,2626 @@
+{
+  "schemaVersion": 1,
+  "id": "chapter01",
+  "title": "الفصل الأول — الظرف الأخير",
+  "entry": "c1_open",
+  "nodes": [
+    {
+      "id": "c1_open",
+      "type": 0,
+      "speaker": "",
+      "text": "١١:٣٢ مساءً. شقة في مدينة نصر، الدور التاسع. المطر بيخبط على الشباك بهدوء، والشارع تحت مبِل من النور الأصفر.",
+      "next": "c1_sms1",
+      "camera": "wide_room",
+      "act": "scene01"
+    },
+    {
+      "id": "c1_sms1",
+      "type": 0,
+      "speaker": "murad",
+      "text": "«يا عم إنت مختفي ليه؟ بكرة لازم أشوفك.»",
+      "next": "c1_adam_reply"
+    },
+    {
+      "id": "c1_adam_reply",
+      "type": 0,
+      "speaker": "adam",
+      "text": "«بكرة إن شاء الله، أنا مرهق جدًا.»",
+      "next": "c1_put_phone",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_put_phone",
+      "type": 0,
+      "speaker": "",
+      "text": "بيحط الموبايل جنبه على الكنبة. سكوته بقى أعمق من صوت المطر.",
+      "next": "c1_doorbell"
+    },
+    {
+      "id": "c1_doorbell",
+      "type": 0,
+      "speaker": "",
+      "text": "…جرس الباب.",
+      "next": "c1_adam_who",
+      "camera": "wide_room"
+    },
+    {
+      "id": "c1_adam_who",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين في الوقت ده؟",
+      "next": "c1_choice_1",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_choice_1",
+      "type": 1,
+      "speaker": "",
+      "text": "قبل ما تفتح… إيه أول حاجة تعملها؟",
+      "options": [
+        {
+          "id": "c1_o_phone",
+          "text": "[تفحص الموبايل]",
+          "next": "c1_check_phone",
+          "decisionId": "CH1_CHECK_PHONE",
+          "effect": {
+            "setFlags": [
+              "CHECKED_PHONE"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_peep",
+          "text": "[تبص من العين السحرية]",
+          "next": "c1_check_peep",
+          "decisionId": "CH1_CHECK_PEEPHOLE",
+          "effect": {
+            "setFlags": [
+              "CHECKED_PEEPHOLE"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_door",
+          "text": "[تفتح الباب على طول]",
+          "next": "c1_open_door",
+          "decisionId": "CH1_OPEN_DOOR_DIRECT"
+        }
+      ],
+      "next": "c1_open_door"
+    },
+    {
+      "id": "c1_check_phone",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مفيش رسائل غير رسالة مراد… مفيش حد تاني يعرف إني صاحي.",
+      "next": "c1_choice_peep",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_check_peep",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مفيش حد في الدهليز… بس فيه حاجة على السجادة.",
+      "next": "c1_open_door",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_choice_peep",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وباب الجيران مقفول زي العادة. يعني اللي جه… جه مخصوص.",
+      "next": "c1_open_door",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_open_door",
+      "type": 0,
+      "speaker": "",
+      "text": "بيفتح الباب. الدهليز فاضي. السجادة عليها ظرف بني.",
+      "next": "c1_envelope_found",
+      "camera": "wide_doorway"
+    },
+    {
+      "id": "c1_envelope_found",
+      "type": 0,
+      "speaker": "",
+      "text": "ظرف بني، مكتوب عليه اسمه بخط إيد: «آدم». مفيش اسم مرسل. وعلى ظهره أثر ختم قديم باهت.",
+      "next": "c1_envelope_choice"
+    },
+    {
+      "id": "c1_envelope_choice",
+      "type": 1,
+      "speaker": "",
+      "text": "الظرف في إيدك…",
+      "options": [
+        {
+          "id": "c1_o_inspect",
+          "text": "[تفحص الظرف كويس]",
+          "next": "c1_inspect",
+          "decisionId": "CH1_INSPECT_ENVELOPE",
+          "effect": {
+            "setFlags": [
+              "INSPECTED_ENVELOPE"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_open",
+          "text": "[تفتحه على طول]",
+          "next": "c1_open_env",
+          "decisionId": "CH1_OPEN_ENVELOPE"
+        }
+      ],
+      "next": "c1_open_env"
+    },
+    {
+      "id": "c1_inspect",
+      "type": 0,
+      "speaker": "adam",
+      "text": "حد جايبلي ظرف باسمي… ومش كاتب اسمه. والختم ده… ده مش ختم بوستة.",
+      "next": "c1_open_env",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_open_env",
+      "type": 0,
+      "speaker": "adam",
+      "text": "…",
+      "next": "c1_contents",
+      "camera": "cu_prop_envelope",
+      "onEnter": {
+        "setFlags": [
+          "ENVELOPE_KEPT"
+        ]
+      }
+    },
+    {
+      "id": "c1_contents",
+      "type": 0,
+      "speaker": "",
+      "text": "جوه الظرف: صورة قديمة لرجل واقف قدام مبنى إداري، وورقة مكتوب عليها بخط اليد: «العقد الأخير — لا تثق في النسخة التي معك»، وتحتها رقم موبايل.",
+      "next": "c1_phone_rings",
+      "camera": "cu_prop_contents"
+    },
+    {
+      "id": "c1_phone_rings",
+      "type": 0,
+      "speaker": "",
+      "text": "وفجأة… الموبايل بيرن. رقم غريب.",
+      "next": "c1_call_1",
+      "camera": "cu_phone"
+    },
+    {
+      "id": "c1_call_1",
+      "type": 0,
+      "speaker": "caller",
+      "text": "مساء الخير يا آدم.",
+      "next": "c1_call_2",
+      "act": "scene02"
+    },
+    {
+      "id": "c1_call_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين معايا؟",
+      "next": "c1_call_3",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_call_3",
+      "type": 0,
+      "speaker": "caller",
+      "text": "وصلت لك الصورة؟",
+      "next": "c1_call_4"
+    },
+    {
+      "id": "c1_call_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إنت اللي بعت الظرف؟",
+      "next": "c1_call_5"
+    },
+    {
+      "id": "c1_call_5",
+      "type": 0,
+      "speaker": "caller",
+      "text": "اسمعني كويس. متروحش للشرطة.",
+      "next": "c1_call_6"
+    },
+    {
+      "id": "c1_call_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "طب أروح لمين؟ وإنت مين أصلًا؟",
+      "next": "c1_call_7"
+    },
+    {
+      "id": "c1_call_7",
+      "type": 0,
+      "speaker": "caller",
+      "text": "اسأل مراد عن سليم.",
+      "next": "c1_call_8"
+    },
+    {
+      "id": "c1_call_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين سليم؟",
+      "next": "c1_call_9"
+    },
+    {
+      "id": "c1_call_9",
+      "type": 0,
+      "speaker": "caller",
+      "text": "الشخص اللي اختفى من سبع سنين.",
+      "next": "c1_call_10"
+    },
+    {
+      "id": "c1_call_10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا مالي بالموضوع ده؟",
+      "next": "c1_call_11"
+    },
+    {
+      "id": "c1_call_11",
+      "type": 0,
+      "speaker": "caller",
+      "text": "لأن اسمك موجود في العقد.",
+      "next": "c1_call_end"
+    },
+    {
+      "id": "c1_call_end",
+      "type": 0,
+      "speaker": "",
+      "text": "الخط بينقطع. آدم بيبص للموبايل كإنه بيستنى يرد تاني… مفيش حاجة.",
+      "next": "c1_sms_threat"
+    },
+    {
+      "id": "c1_sms_threat",
+      "type": 0,
+      "speaker": "",
+      "text": "رسالة من نفس الرقم: «دي فرصتك الأخيرة تبعد عن الموضوع.»",
+      "next": "c1_choice_2",
+      "camera": "cu_phone"
+    },
+    {
+      "id": "c1_choice_2",
+      "type": 1,
+      "speaker": "",
+      "text": "الساعة ١١:٤٧. إيه اللي هتعمله؟",
+      "options": [
+        {
+          "id": "c1_o_call_murad",
+          "text": "[تتصل بمراد فورًا]",
+          "next": "c1_scene03_entry",
+          "decisionId": "CH1_CALL_MURAD",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Murad",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "CALLED_MURAD"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_search_selim",
+          "text": "[تدور على سليم على الإنترنت]",
+          "next": "c1_search",
+          "decisionId": "CH1_SEARCH_SELIM",
+          "effect": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "KNOWS_SELIM"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_dispose",
+          "text": "[تتخلص من الظرف]",
+          "next": "c1_dispose",
+          "decisionId": "CH1_DISPOSE_ENVELOPE",
+          "effect": {
+            "clearFlags": [
+              "ENVELOPE_KEPT"
+            ]
+          }
+        }
+      ],
+      "next": "c1_scene03_entry"
+    },
+    {
+      "id": "c1_search",
+      "type": 0,
+      "speaker": "adam",
+      "text": "سليم… سبع سنين. إيه اللي حصل؟",
+      "next": "c1_search2",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_search2",
+      "type": 0,
+      "speaker": "",
+      "text": "خبر قديم من ٢٠١٩: «اختفاء موظف في شركة النور للاستثمارات — التحقيق اتقفل بدون نتيجة.»",
+      "next": "c1_scene03_entry",
+      "camera": "cu_screen"
+    },
+    {
+      "id": "c1_dispose",
+      "type": 0,
+      "speaker": "",
+      "text": "بيحط الظرف في كيس بلاستيك وينزل يرميه في صندوق الزبالة. الصورة راحت… لكن الاسم اللي في المكالمة مش راح.",
+      "next": "c1_scene03_entry",
+      "camera": "cu_prop_envelope"
+    },
+    {
+      "id": "c1_scene03_entry",
+      "type": 0,
+      "speaker": "",
+      "text": "١٠:١٥ صباحًا. مقهى في مدينة نصر. مراد قاعد جانب الشباك وبيحرك كوب القهوة.",
+      "next": "c1_murad_hi",
+      "camera": "wide_cafe",
+      "act": "scene03"
+    },
+    {
+      "id": "c1_murad_hi",
+      "type": 0,
+      "speaker": "murad",
+      "text": "أخيرًا! إنت كنت فين يا بني؟",
+      "next": "c1_murad_ask",
+      "camera": "ots_murad"
+    },
+    {
+      "id": "c1_murad_ask",
+      "type": 0,
+      "speaker": "adam",
+      "text": "حصلت حاجة غريبة امبارح.",
+      "next": "c1_branch_murad_open"
+    },
+    {
+      "id": "c1_branch_murad_open",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_called",
+          "next": "c1_murad_called",
+          "require": {
+            "allFlags": [
+              "CALLED_MURAD"
+            ]
+          }
+        },
+        {
+          "id": "b_not",
+          "next": "c1_murad_normal"
+        }
+      ]
+    },
+    {
+      "id": "c1_murad_called",
+      "type": 0,
+      "speaker": "murad",
+      "text": "إنت كنت بتكلمني امبارح وكنت متوتر. حصل إيه؟",
+      "next": "c1_branch_selim",
+      "camera": "ots_murad"
+    },
+    {
+      "id": "c1_murad_normal",
+      "type": 0,
+      "speaker": "murad",
+      "text": "مالك؟ شكلك مش طبيعي.",
+      "next": "c1_branch_selim",
+      "camera": "ots_murad"
+    },
+    {
+      "id": "c1_branch_selim",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_selim",
+          "next": "c1_murad_selim",
+          "require": {
+            "allFlags": [
+              "KNOWS_SELIM"
+            ]
+          }
+        },
+        {
+          "id": "b_no_selim",
+          "next": "c1_branch_env"
+        }
+      ]
+    },
+    {
+      "id": "c1_murad_selim",
+      "type": 0,
+      "speaker": "adam",
+      "text": "لقيت خبر قديم عن واحد اسمه سليم. اختفى من سبع سنين.",
+      "next": "c1_murad_selim2",
+      "camera": "ots_adam"
+    },
+    {
+      "id": "c1_murad_selim2",
+      "type": 0,
+      "speaker": "",
+      "text": "مراد بيوقف تحريك الكوب. إيده بتفضل في الهوا نص ثانية قبل ما تنزل.",
+      "next": "c1_murad_selim3",
+      "camera": "cu_murad"
+    },
+    {
+      "id": "c1_murad_selim3",
+      "type": 0,
+      "speaker": "murad",
+      "text": "مين قالك الاسم ده؟",
+      "next": "c1_branch_env"
+    },
+    {
+      "id": "c1_branch_env",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_env",
+          "next": "c1_show_photo",
+          "require": {
+            "allFlags": [
+              "ENVELOPE_KEPT"
+            ]
+          }
+        },
+        {
+          "id": "b_noenv",
+          "next": "c1_murad_deny"
+        }
+      ]
+    },
+    {
+      "id": "c1_show_photo",
+      "type": 0,
+      "speaker": "adam",
+      "text": "تعرف الراجل ده؟",
+      "next": "c1_murad_photo1",
+      "camera": "cu_prop_photo"
+    },
+    {
+      "id": "c1_murad_photo1",
+      "type": 0,
+      "speaker": "",
+      "text": "مراد بياخد الصورة، بيبص لها لثانيتين… وبيرجعها بسرعة.",
+      "next": "c1_murad_photo2",
+      "camera": "cu_murad"
+    },
+    {
+      "id": "c1_murad_photo2",
+      "type": 0,
+      "speaker": "murad",
+      "text": "لا.",
+      "next": "c1_murad_press"
+    },
+    {
+      "id": "c1_murad_press",
+      "type": 0,
+      "speaker": "adam",
+      "text": "بص كويس.",
+      "next": "c1_murad_raise"
+    },
+    {
+      "id": "c1_murad_raise",
+      "type": 0,
+      "speaker": "murad",
+      "text": "بقولك معرفوش!",
+      "next": "c1_murad_fear"
+    },
+    {
+      "id": "c1_murad_fear",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إنت خايف من الصورة ليه؟",
+      "next": "c1_murad_warn"
+    },
+    {
+      "id": "c1_murad_warn",
+      "type": 0,
+      "speaker": "murad",
+      "text": "اسمعني، الصورة دي لو معاك، متوريهاش لأي حد.",
+      "next": "c1_murad_why",
+      "camera": "ots_murad"
+    },
+    {
+      "id": "c1_murad_why",
+      "type": 0,
+      "speaker": "adam",
+      "text": "ليه؟",
+      "next": "c1_murad_answer"
+    },
+    {
+      "id": "c1_murad_answer",
+      "type": 0,
+      "speaker": "murad",
+      "text": "لأن مش كل اللي في الصور بيكونوا عايشين.",
+      "next": "c1_murad_stop"
+    },
+    {
+      "id": "c1_murad_deny",
+      "type": 0,
+      "speaker": "adam",
+      "text": "طب سليم؟ أنت تعرفه؟",
+      "next": "c1_murad_stop",
+      "camera": "ots_adam"
+    },
+    {
+      "id": "c1_murad_stop",
+      "type": 0,
+      "speaker": "",
+      "text": "مراد بيسكت، وبيرفع عينه ناحية باب المقهى.",
+      "next": "c1_murad_stop2",
+      "camera": "cu_murad"
+    },
+    {
+      "id": "c1_murad_stop2",
+      "type": 0,
+      "speaker": "murad",
+      "text": "اسمعني يا آدم. اقفل الموضوع ده.",
+      "next": "c1_murad_why2"
+    },
+    {
+      "id": "c1_murad_why2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "هو أنا مش فاهم حاجة! إيه اللي بيحصل؟",
+      "next": "c1_murad_warning"
+    },
+    {
+      "id": "c1_murad_warning",
+      "type": 0,
+      "speaker": "murad",
+      "text": "في حاجات لما تعرفها، مش هتعرف ترجع زي الأول.",
+      "next": "c1_choice_3",
+      "camera": "ots_murad"
+    },
+    {
+      "id": "c1_choice_3",
+      "type": 1,
+      "speaker": "",
+      "text": "مراد مستني إجابتك…",
+      "options": [
+        {
+          "id": "c1_o_press",
+          "text": "[تضغط عليه]",
+          "next": "c1_press_1",
+          "decisionId": "CH1_PRESS_MURAD",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Murad",
+                "add": -1
+              },
+              {
+                "key": "Suspicion",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "PRESSED_MURAD"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_pretend",
+          "text": "[تتظاهر بالتصديق]",
+          "next": "c1_pretend_1",
+          "decisionId": "CH1_PRETEND_MURAD",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Murad",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "PRETENDED_MURAD"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_tell_call",
+          "text": "[تحكيله عن المكالمة كاملة]",
+          "next": "c1_tell_1",
+          "decisionId": "CH1_TELL_MURAD_CALL",
+          "effect": {
+            "setFlags": [
+              "TOLD_MURAD_CALL"
+            ]
+          }
+        }
+      ],
+      "next": "c1_press_1"
+    },
+    {
+      "id": "c1_press_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مش همشي غير لما تحكي كل حاجة.",
+      "next": "c1_press_2",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_press_2",
+      "type": 0,
+      "speaker": "murad",
+      "text": "إنت مش فاهم حجم الموضوع.",
+      "next": "c1_press_3"
+    },
+    {
+      "id": "c1_press_3",
+      "type": 0,
+      "speaker": "",
+      "text": "مراد بيقوم ويسيب المقهى من غير وداع.",
+      "next": "c1_murad_after"
+    },
+    {
+      "id": "c1_pretend_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "تمام. هنسى الموضوع.",
+      "next": "c1_pretend_2"
+    },
+    {
+      "id": "c1_pretend_2",
+      "type": 0,
+      "speaker": "murad",
+      "text": "ده أحسن ليك.",
+      "next": "c1_pretend_3"
+    },
+    {
+      "id": "c1_pretend_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "بس عندي سؤال أخير. سليم كان صاحبك؟",
+      "next": "c1_pretend_4",
+      "camera": "ots_adam"
+    },
+    {
+      "id": "c1_pretend_4",
+      "type": 0,
+      "speaker": "",
+      "text": "مراد بيبص ناحية الشباك.",
+      "next": "c1_pretend_5",
+      "camera": "cu_murad"
+    },
+    {
+      "id": "c1_pretend_5",
+      "type": 0,
+      "speaker": "murad",
+      "text": "كان شخص أعرفه.",
+      "next": "c1_pretend_6"
+    },
+    {
+      "id": "c1_pretend_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وراح فين؟",
+      "next": "c1_pretend_7"
+    },
+    {
+      "id": "c1_pretend_7",
+      "type": 0,
+      "speaker": "murad",
+      "text": "دي الحكاية اللي محدش عرف إجابتها.",
+      "next": "c1_murad_after"
+    },
+    {
+      "id": "c1_tell_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "الراجل قال إن اسمي موجود في العقد.",
+      "next": "c1_tell_2",
+      "camera": "ots_adam"
+    },
+    {
+      "id": "c1_tell_2",
+      "type": 0,
+      "speaker": "",
+      "text": "وش مراد بيتغير.",
+      "next": "c1_tell_3",
+      "camera": "cu_murad"
+    },
+    {
+      "id": "c1_tell_3",
+      "type": 0,
+      "speaker": "murad",
+      "text": "قالك كده؟",
+      "next": "c1_tell_4"
+    },
+    {
+      "id": "c1_tell_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أيوه. إنت عارف حاجة؟",
+      "next": "c1_tell_5"
+    },
+    {
+      "id": "c1_tell_5",
+      "type": 0,
+      "speaker": "murad",
+      "text": "أنا… محتاج أفكر.",
+      "next": "c1_murad_after"
+    },
+    {
+      "id": "c1_murad_after",
+      "type": 0,
+      "speaker": "",
+      "text": "مراد بيمشي. تحت الكوب ورقة صغيرة مكتوب عليها: «شارع جانبي — وسط البلد — الدور التالت»، وتحتها كلمة واحدة: «الأرشيف».",
+      "next": "c1_branch_murad_bonus",
+      "camera": "cu_prop_note"
+    },
+    {
+      "id": "c1_branch_murad_bonus",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_bonus",
+          "next": "c1_murad_bonus_1",
+          "require": {
+            "stats": [
+              {
+                "key": "Trust_Murad",
+                "op": ">=",
+                "value": 56
+              }
+            ]
+          }
+        },
+        {
+          "id": "b_nobonus",
+          "next": "c1_scene04_entry"
+        }
+      ]
+    },
+    {
+      "id": "c1_murad_bonus_1",
+      "type": 0,
+      "speaker": "murad",
+      "text": "آدم… أنا مكنتش عايزك تعرف بالطريقة دي.",
+      "next": "c1_murad_bonus_2",
+      "camera": "ots_murad"
+    },
+    {
+      "id": "c1_murad_bonus_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "تعرف إيه؟",
+      "next": "c1_murad_bonus_3"
+    },
+    {
+      "id": "c1_murad_bonus_3",
+      "type": 0,
+      "speaker": "murad",
+      "text": "سليم قبل ما يختفي بيوم، جه عندي.",
+      "next": "c1_murad_bonus_4"
+    },
+    {
+      "id": "c1_murad_bonus_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وقالك إيه؟",
+      "next": "c1_murad_bonus_5"
+    },
+    {
+      "id": "c1_murad_bonus_5",
+      "type": 0,
+      "speaker": "murad",
+      "text": "قال إن في حد جوه الشركة بيغير سجلات قديمة.",
+      "next": "c1_murad_bonus_6",
+      "camera": "cu_murad"
+    },
+    {
+      "id": "c1_murad_bonus_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين؟",
+      "next": "c1_murad_bonus_7"
+    },
+    {
+      "id": "c1_murad_bonus_7",
+      "type": 0,
+      "speaker": "murad",
+      "text": "مذكرش اسم. بس ساب عندي رقم ملف.",
+      "next": "c1_murad_bonus_8"
+    },
+    {
+      "id": "c1_murad_bonus_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "والرقم معاك؟",
+      "next": "c1_murad_bonus_9"
+    },
+    {
+      "id": "c1_murad_bonus_9",
+      "type": 0,
+      "speaker": "murad",
+      "text": "لأ… أنا سلمته لشخص تاني.",
+      "next": "c1_murad_bonus_10"
+    },
+    {
+      "id": "c1_murad_bonus_10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين الشخص ده؟",
+      "next": "c1_murad_bonus_11",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_murad_bonus_11",
+      "type": 0,
+      "speaker": "murad",
+      "text": "ليلى.",
+      "next": "c1_scene04_entry",
+      "camera": "cu_murad",
+      "onEnter": {
+        "setFlags": [
+          "MURAD_NAMED_LAILA"
+        ]
+      }
+    },
+    {
+      "id": "c1_scene04_entry",
+      "type": 0,
+      "speaker": "",
+      "text": "٢:٤٠ ظهرًا. مبنى قديم في وسط البلد. آدم بيطلع السلم وبيطرق باب المكتب.",
+      "next": "c1_laila_open",
+      "camera": "wide_stairs",
+      "act": "scene04"
+    },
+    {
+      "id": "c1_laila_open",
+      "type": 0,
+      "speaker": "laila",
+      "text": "حضرتك آدم؟",
+      "next": "c1_laila_2",
+      "camera": "ots_laila"
+    },
+    {
+      "id": "c1_laila_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أيوه. إنتِ مين؟",
+      "next": "c1_laila_3"
+    },
+    {
+      "id": "c1_laila_3",
+      "type": 0,
+      "speaker": "laila",
+      "text": "ليلى. أنا اللي بعتلك رسالة.",
+      "next": "c1_laila_4"
+    },
+    {
+      "id": "c1_laila_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "رسالة إيه؟",
+      "next": "c1_laila_5"
+    },
+    {
+      "id": "c1_laila_5",
+      "type": 0,
+      "speaker": "",
+      "text": "بتفتح موبايلها وبتوريه رسالة من رقم مجهول: «آدم لازم يعرف الحقيقة قبل ما يكون هو الضحية التالية.»",
+      "next": "c1_laila_6",
+      "camera": "cu_phone"
+    },
+    {
+      "id": "c1_laila_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إنتِ تعرفي مين بعتها؟",
+      "next": "c1_laila_7"
+    },
+    {
+      "id": "c1_laila_7",
+      "type": 0,
+      "speaker": "laila",
+      "text": "لا. لكن أنا بدور على سليم من فترة طويلة.",
+      "next": "c1_laila_8"
+    },
+    {
+      "id": "c1_laila_8",
+      "type": 0,
+      "speaker": "",
+      "text": "بتحط صور على المكتب.",
+      "next": "c1_laila_9",
+      "camera": "cu_prop_photos"
+    },
+    {
+      "id": "c1_laila_9",
+      "type": 0,
+      "speaker": "laila",
+      "text": "سليم اختفى من سبع سنين. آخر مكان اتشاف فيه كان المبنى ده.",
+      "next": "c1_laila_10",
+      "camera": "ots_laila"
+    },
+    {
+      "id": "c1_laila_10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وإيه علاقة مراد بالموضوع؟",
+      "next": "c1_laila_11"
+    },
+    {
+      "id": "c1_laila_11",
+      "type": 0,
+      "speaker": "laila",
+      "text": "السؤال مش عن مراد بس. السؤال: ليه اسمك ظهر دلوقتي؟",
+      "next": "c1_branch_laila_selim"
+    },
+    {
+      "id": "c1_branch_laila_selim",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_knows",
+          "next": "c1_laila_knows",
+          "require": {
+            "allFlags": [
+              "KNOWS_SELIM"
+            ]
+          }
+        },
+        {
+          "id": "b_noknows",
+          "next": "c1_laila_env"
+        }
+      ]
+    },
+    {
+      "id": "c1_laila_knows",
+      "type": 0,
+      "speaker": "laila",
+      "text": "واضح إنك بحثت عن اسمه قبل ما تيجي.",
+      "next": "c1_laila_env"
+    },
+    {
+      "id": "c1_laila_env",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_have",
+          "next": "c1_laila_photo",
+          "require": {
+            "allFlags": [
+              "ENVELOPE_KEPT"
+            ]
+          }
+        },
+        {
+          "id": "b_missing",
+          "next": "c1_laila_nophoto"
+        }
+      ]
+    },
+    {
+      "id": "c1_laila_nophoto",
+      "type": 0,
+      "speaker": "laila",
+      "text": "معاكش الصورة؟",
+      "next": "c1_laila_nophoto2"
+    },
+    {
+      "id": "c1_laila_nophoto2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "اتخلصت منها.",
+      "next": "c1_laila_nophoto3"
+    },
+    {
+      "id": "c1_laila_nophoto3",
+      "type": 0,
+      "speaker": "laila",
+      "text": "كان ممكن تساعدنا.",
+      "next": "c1_choice_4"
+    },
+    {
+      "id": "c1_laila_photo",
+      "type": 0,
+      "speaker": "laila",
+      "text": "استنى… إنت جبت الصورة دي منين؟",
+      "next": "c1_laila_photo2",
+      "camera": "cu_laila"
+    },
+    {
+      "id": "c1_laila_photo2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وصلتلي في ظرف.",
+      "next": "c1_laila_photo3"
+    },
+    {
+      "id": "c1_laila_photo3",
+      "type": 0,
+      "speaker": "laila",
+      "text": "الظرف كان عليه اسمك؟",
+      "next": "c1_laila_photo4"
+    },
+    {
+      "id": "c1_laila_photo4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أيوه.",
+      "next": "c1_laila_photo5"
+    },
+    {
+      "id": "c1_laila_photo5",
+      "type": 0,
+      "speaker": "laila",
+      "text": "يبقى اللي بعتلك الصورة عارفك من زمان.",
+      "next": "c1_laila_photo6"
+    },
+    {
+      "id": "c1_laila_photo6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "تعرفي الشخص اللي واقف جنب سليم؟",
+      "next": "c1_laila_photo7"
+    },
+    {
+      "id": "c1_laila_photo7",
+      "type": 0,
+      "speaker": "laila",
+      "text": "يوسف. رجل الأعمال اللي كان ماسك الشركة وقت اختفاء سليم.",
+      "next": "c1_laila_photo8"
+    },
+    {
+      "id": "c1_laila_photo8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وليه محدش اتكلم عنه؟",
+      "next": "c1_laila_photo9"
+    },
+    {
+      "id": "c1_laila_photo9",
+      "type": 0,
+      "speaker": "laila",
+      "text": "لأن التحقيق اتقفل بسرعة غريبة.",
+      "next": "c1_laila_photo10"
+    },
+    {
+      "id": "c1_laila_photo10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وإنتِ بتدوري على إيه بالضبط؟",
+      "next": "c1_laila_photo11"
+    },
+    {
+      "id": "c1_laila_photo11",
+      "type": 0,
+      "speaker": "laila",
+      "text": "توقيع واحد. توقيع يثبت إن سليم مخرجش من الشركة بإرادته.",
+      "next": "c1_choice_4",
+      "camera": "ots_laila"
+    },
+    {
+      "id": "c1_choice_4",
+      "type": 1,
+      "speaker": "",
+      "text": "ليلى مستنية…",
+      "options": [
+        {
+          "id": "c1_o_give_photo",
+          "text": "[تديها صورة الظرف]",
+          "next": "c1_give_1",
+          "decisionId": "CH1_GIVE_PHOTO",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Laila",
+                "add": 2
+              },
+              {
+                "key": "Evidence_Count",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "REVEALED_LAILA"
+            ]
+          },
+          "require": {
+            "allFlags": [
+              "ENVELOPE_KEPT"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_limited",
+          "text": "[تديها معلومات محدودة]",
+          "next": "c1_limited_1",
+          "decisionId": "CH1_LIMITED_INFO",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Laila",
+                "add": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "c1_o_refuse",
+          "text": "[ترفض التعاون]",
+          "next": "c1_refuse_1",
+          "decisionId": "CH1_REFUSE_LAILA",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Laila",
+                "add": -1
+              }
+            ]
+          }
+        }
+      ],
+      "next": "c1_limited_1"
+    },
+    {
+      "id": "c1_give_1",
+      "type": 0,
+      "speaker": "laila",
+      "text": "الصورة دي مهمة جدًا. المبنى ده تابع لشركة النور.",
+      "next": "c1_laila_bonus",
+      "camera": "cu_laila"
+    },
+    {
+      "id": "c1_limited_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا مش هحكيلك كل حاجة دلوقتي.",
+      "next": "c1_limited_2"
+    },
+    {
+      "id": "c1_limited_2",
+      "type": 0,
+      "speaker": "laila",
+      "text": "حقك.",
+      "next": "c1_limited_3"
+    },
+    {
+      "id": "c1_limited_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "بس عايز أعرف إنتِ وصلتي لاسمي إزاي.",
+      "next": "c1_limited_4"
+    },
+    {
+      "id": "c1_limited_4",
+      "type": 0,
+      "speaker": "",
+      "text": "بتفتح درج وبتطلع نسخة ورقية.",
+      "next": "c1_limited_5"
+    },
+    {
+      "id": "c1_limited_5",
+      "type": 0,
+      "speaker": "laila",
+      "text": "الاسم ده ظهر في سجل قديم.",
+      "next": "c1_limited_6"
+    },
+    {
+      "id": "c1_limited_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا كنت عندي ١٧ سنة وقتها!",
+      "next": "c1_limited_7"
+    },
+    {
+      "id": "c1_limited_7",
+      "type": 0,
+      "speaker": "laila",
+      "text": "عشان كده الموضوع غريب.",
+      "next": "c1_limited_8"
+    },
+    {
+      "id": "c1_limited_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "يعني حد استخدم اسمي؟",
+      "next": "c1_limited_9"
+    },
+    {
+      "id": "c1_limited_9",
+      "type": 0,
+      "speaker": "laila",
+      "text": "أو حد كان بيجهز حاجة من وقتها.",
+      "next": "c1_laila_bonus"
+    },
+    {
+      "id": "c1_refuse_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا مش واثق فيكي.",
+      "next": "c1_refuse_2"
+    },
+    {
+      "id": "c1_refuse_2",
+      "type": 0,
+      "speaker": "laila",
+      "text": "الثقة مش مطلوبة. المطلوب إنك تفكر.",
+      "next": "c1_refuse_3"
+    },
+    {
+      "id": "c1_refuse_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مش عايز أتورط.",
+      "next": "c1_refuse_4"
+    },
+    {
+      "id": "c1_refuse_4",
+      "type": 0,
+      "speaker": "laila",
+      "text": "أنت متورط بالفعل، سواء عايز أو لأ.",
+      "next": "c1_refuse_5"
+    },
+    {
+      "id": "c1_refuse_5",
+      "type": 0,
+      "speaker": "",
+      "text": "بتقفل الملف.",
+      "next": "c1_refuse_6"
+    },
+    {
+      "id": "c1_refuse_6",
+      "type": 0,
+      "speaker": "laila",
+      "text": "لما تقرر تعرف الحقيقة، ابحث عن رقم العقد ٧١٤.",
+      "next": "c1_laila_bonus",
+      "onEnter": {
+        "setFlags": [
+          "HEARD_CONTRACT_714"
+        ]
+      }
+    },
+    {
+      "id": "c1_laila_bonus",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_ltrust",
+          "next": "c1_laila_bonus_1",
+          "require": {
+            "stats": [
+              {
+                "key": "Trust_Laila",
+                "op": ">=",
+                "value": 42
+              }
+            ]
+          }
+        },
+        {
+          "id": "b_noltrust",
+          "next": "c1_scene05_entry"
+        }
+      ]
+    },
+    {
+      "id": "c1_laila_bonus_1",
+      "type": 0,
+      "speaker": "laila",
+      "text": "في حاجة لازم تعرفها.",
+      "next": "c1_laila_bonus_2",
+      "camera": "cu_laila"
+    },
+    {
+      "id": "c1_laila_bonus_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إيه؟",
+      "next": "c1_laila_bonus_3"
+    },
+    {
+      "id": "c1_laila_bonus_3",
+      "type": 0,
+      "speaker": "laila",
+      "text": "سليم كان بيبعتلي رسائل قبل اختفائه.",
+      "next": "c1_laila_bonus_4"
+    },
+    {
+      "id": "c1_laila_bonus_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وإنتِ كنتِ تعرفيه؟",
+      "next": "c1_laila_bonus_5"
+    },
+    {
+      "id": "c1_laila_bonus_5",
+      "type": 0,
+      "speaker": "laila",
+      "text": "كنت بساعده في جمع مستندات عن الشركة.",
+      "next": "c1_laila_bonus_6"
+    },
+    {
+      "id": "c1_laila_bonus_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وليه مدخلتيش الشرطة؟",
+      "next": "c1_laila_bonus_7"
+    },
+    {
+      "id": "c1_laila_bonus_7",
+      "type": 0,
+      "speaker": "laila",
+      "text": "دخلت. وبعدها اختفت المستندات واتقفل التحقيق.",
+      "next": "c1_laila_bonus_8"
+    },
+    {
+      "id": "c1_laila_bonus_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين قفل التحقيق؟",
+      "next": "c1_laila_bonus_9"
+    },
+    {
+      "id": "c1_laila_bonus_9",
+      "type": 0,
+      "speaker": "",
+      "text": "صمت قصير.",
+      "next": "c1_laila_bonus_10"
+    },
+    {
+      "id": "c1_laila_bonus_10",
+      "type": 0,
+      "speaker": "laila",
+      "text": "ياسين.",
+      "next": "c1_laila_bonus_11"
+    },
+    {
+      "id": "c1_laila_bonus_11",
+      "type": 0,
+      "speaker": "adam",
+      "text": "المحقق ياسين؟",
+      "next": "c1_laila_bonus_12"
+    },
+    {
+      "id": "c1_laila_bonus_12",
+      "type": 0,
+      "speaker": "laila",
+      "text": "أيوه. ومش متأكدة إذا كان بيحمي القضية ولا بيحمي حد منها.",
+      "next": "c1_scene05_entry",
+      "onEnter": {
+        "setFlags": [
+          "LAILA_SUSPECTS_YASSIN"
+        ]
+      }
+    },
+    {
+      "id": "c1_scene05_entry",
+      "type": 0,
+      "speaker": "",
+      "text": "٦:٢٠ مساءً. مبنى إداري قديم. ممر طويل، إضاءة فلورسنت بتترعش، وخزائن ملفات معدنية والغبار مغطي المكاتب وصدى خطواته بيرجع له.",
+      "next": "c1_archive_hub",
+      "camera": "wide_archive",
+      "act": "scene05"
+    },
+    {
+      "id": "c1_archive_hub",
+      "type": 1,
+      "speaker": "",
+      "text": "بتفتح الخزائن… تدور على إيه؟",
+      "options": [
+        {
+          "id": "c1_ev_file",
+          "text": "[ملف سليم]",
+          "next": "c1_ev_file_1",
+          "decisionId": "CH1_ARCHIVE_FILE",
+          "effect": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "FOUND_ARCHIVE_FILE"
+            ]
+          },
+          "require": {
+            "noneFlags": [
+              "FOUND_ARCHIVE_FILE"
+            ]
+          }
+        },
+        {
+          "id": "c1_ev_photo",
+          "text": "[صورة يوسف]",
+          "next": "c1_ev_photo_1",
+          "decisionId": "CH1_ARCHIVE_PHOTO",
+          "effect": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "FOUND_YUSUF_PHOTO"
+            ]
+          },
+          "require": {
+            "noneFlags": [
+              "FOUND_YUSUF_PHOTO"
+            ]
+          }
+        },
+        {
+          "id": "c1_ev_contract",
+          "text": "[ورقة فيها رقم عقد]",
+          "next": "c1_ev_contract_1",
+          "decisionId": "CH1_ARCHIVE_CONTRACT",
+          "effect": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "FOUND_CONTRACT_NUMBER"
+            ]
+          },
+          "require": {
+            "noneFlags": [
+              "FOUND_CONTRACT_NUMBER"
+            ]
+          }
+        },
+        {
+          "id": "c1_ev_log",
+          "text": "[سجل الدخول]",
+          "next": "c1_ev_log_1",
+          "decisionId": "CH1_ARCHIVE_LOG",
+          "effect": {
+            "setFlags": [
+              "FOUND_ENTRY_LOG"
+            ]
+          },
+          "require": {
+            "noneFlags": [
+              "FOUND_ENTRY_LOG"
+            ]
+          }
+        },
+        {
+          "id": "c1_ev_leave",
+          "text": "[تخرج من الأرشيف]",
+          "next": "c1_archive_event",
+          "decisionId": "CH1_ARCHIVE_LEAVE"
+        }
+      ],
+      "next": "c1_archive_event"
+    },
+    {
+      "id": "c1_ev_file_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "يعني الراجل ده كان شغال هنا فعلًا.",
+      "next": "c1_archive_hub",
+      "camera": "cu_prop_file"
+    },
+    {
+      "id": "c1_ev_photo_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "هو ده الراجل اللي في الصورة القديمة.",
+      "next": "c1_archive_hub",
+      "camera": "cu_prop_photo"
+    },
+    {
+      "id": "c1_ev_contract_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "العقد الأخير… النور للاستثمارات.",
+      "next": "c1_archive_hub",
+      "camera": "cu_prop_contract"
+    },
+    {
+      "id": "c1_ev_log_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "توقيع في تاريخ الاختفاء… بس مش واضح.",
+      "next": "c1_archive_hub",
+      "camera": "cu_prop_log"
+    },
+    {
+      "id": "c1_archive_event",
+      "type": 0,
+      "speaker": "",
+      "text": "صوت باب بيتقفل في آخر الممر.",
+      "next": "c1_archive_who"
+    },
+    {
+      "id": "c1_archive_who",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين هنا؟",
+      "next": "c1_archive_silence",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_archive_silence",
+      "type": 0,
+      "speaker": "",
+      "text": "مفيش رد. على الأرض موبايل قديم… وبيرن.",
+      "next": "c1_archive_call_1",
+      "camera": "cu_phone_old"
+    },
+    {
+      "id": "c1_archive_call_1",
+      "type": 0,
+      "speaker": "caller",
+      "text": "أنت بتدور في المكان الغلط.",
+      "next": "c1_archive_call_2"
+    },
+    {
+      "id": "c1_archive_call_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إنت مين؟!",
+      "next": "c1_archive_call_3",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_archive_call_3",
+      "type": 0,
+      "speaker": "caller",
+      "text": "أنا الشخص الوحيد اللي لسه بيحاول يمنع اللي حصل زمان من إنه يتكرر.",
+      "next": "c1_archive_call_4"
+    },
+    {
+      "id": "c1_archive_call_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "حصل إيه زمان؟",
+      "next": "c1_archive_call_5"
+    },
+    {
+      "id": "c1_archive_call_5",
+      "type": 0,
+      "speaker": "caller",
+      "text": "بص وراك.",
+      "next": "c1_archive_turn"
+    },
+    {
+      "id": "c1_archive_turn",
+      "type": 0,
+      "speaker": "",
+      "text": "الكاميرا بتلف ورا آدم. الباب مقفول. وعلى الحيطة… صورة لآدم نفسه وهو بيدخل الأرشيف.",
+      "next": "c1_archive_shock",
+      "camera": "cu_wall_photo"
+    },
+    {
+      "id": "c1_archive_shock",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إزاي؟!",
+      "next": "c1_archive_black",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_archive_black",
+      "type": 0,
+      "speaker": "",
+      "text": "قطع سريع للسواد.",
+      "next": "c1_archive_black_fx"
+    },
+    {
+      "id": "c1_archive_black_fx",
+      "type": 3,
+      "speaker": "",
+      "text": "",
+      "action": "audio",
+      "param": "ending_sting",
+      "next": "c1_scene06_entry"
+    },
+    {
+      "id": "c1_scene06_entry",
+      "type": 0,
+      "speaker": "",
+      "text": "٨:١٠ مساءً. مكتب التحقيقات. آدم قاعد قدام ياسين، وياسين بيفتح ملف قديم.",
+      "next": "c1_yassin_1",
+      "camera": "wide_interrogation",
+      "act": "scene06"
+    },
+    {
+      "id": "c1_yassin_1",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "اسمك آدم؟",
+      "next": "c1_yassin_2",
+      "camera": "ots_yassin"
+    },
+    {
+      "id": "c1_yassin_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أيوه.",
+      "next": "c1_yassin_3"
+    },
+    {
+      "id": "c1_yassin_3",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "شغال فين؟",
+      "next": "c1_yassin_4"
+    },
+    {
+      "id": "c1_yassin_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "موظف أرشيف.",
+      "next": "c1_yassin_5"
+    },
+    {
+      "id": "c1_yassin_5",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "غريبة.",
+      "next": "c1_yassin_6",
+      "camera": "cu_yassin"
+    },
+    {
+      "id": "c1_yassin_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إيه الغريب؟",
+      "next": "c1_yassin_7"
+    },
+    {
+      "id": "c1_yassin_7",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "لأننا لقينا اسمك في ملف قديم متعلق باختفاء سليم.",
+      "next": "c1_yassin_8"
+    },
+    {
+      "id": "c1_yassin_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا عمري ما قابلت الراجل ده.",
+      "next": "c1_yassin_9"
+    },
+    {
+      "id": "c1_yassin_9",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "أنا مصدق إنك ممكن تكون مش فاهم اللي بيحصل. لكن ده مش معناه إنك بريء من كل حاجة.",
+      "next": "c1_yassin_10",
+      "camera": "ots_yassin"
+    },
+    {
+      "id": "c1_yassin_10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "هو أنا متهم؟",
+      "next": "c1_yassin_11"
+    },
+    {
+      "id": "c1_yassin_11",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "لسه.",
+      "next": "c1_yassin_12"
+    },
+    {
+      "id": "c1_yassin_12",
+      "type": 0,
+      "speaker": "",
+      "text": "بيطلع صورة يوسف.",
+      "next": "c1_yassin_13",
+      "camera": "cu_prop_photo"
+    },
+    {
+      "id": "c1_yassin_13",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "تعرف الشخص ده؟",
+      "next": "c1_yassin_14"
+    },
+    {
+      "id": "c1_yassin_14",
+      "type": 0,
+      "speaker": "adam",
+      "text": "شفته في صورة عند ليلى.",
+      "next": "c1_choice_5",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_choice_5",
+      "type": 1,
+      "speaker": "",
+      "text": "ياسين مستني…",
+      "options": [
+        {
+          "id": "c1_o_tell_all",
+          "text": "[تحكيله عن ليلى بكل حاجة]",
+          "next": "c1_yassin_all_1",
+          "decisionId": "CH1_TELL_YASSIN_LAILA",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Yassin",
+                "add": 1
+              },
+              {
+                "key": "Suspicion",
+                "add": -1
+              }
+            ],
+            "setFlags": [
+              "TOLD_YASSIN_ABOUT_LAILA"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_hide",
+          "text": "[تخفي اسم ليلى]",
+          "next": "c1_yassin_hide_1",
+          "decisionId": "CH1_HIDE_LAILA",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Yassin",
+                "add": -1
+              }
+            ]
+          }
+        },
+        {
+          "id": "c1_o_demand",
+          "text": "[تطلب تشوف الملف القديم]",
+          "next": "c1_yassin_file_1",
+          "decisionId": "CH1_DEMAND_FILE",
+          "effect": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "add": 1
+              }
+            ]
+          }
+        }
+      ],
+      "next": "c1_yassin_hide_1"
+    },
+    {
+      "id": "c1_yassin_all_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "ليلى صحفية. هي اللي قالتلي إن سليم اختفى.",
+      "next": "c1_yassin_all_2"
+    },
+    {
+      "id": "c1_yassin_all_2",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "ليلى؟ من إمتى وهي بتدور في القضية دي؟",
+      "next": "c1_yassin_all_3",
+      "camera": "cu_yassin"
+    },
+    {
+      "id": "c1_yassin_all_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إن سليم كان بيجمع مستندات عن الشركة.",
+      "next": "c1_yassin_all_4"
+    },
+    {
+      "id": "c1_yassin_all_4",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "وهي قالتلك إنها كانت بتساعده؟",
+      "next": "c1_yassin_all_5"
+    },
+    {
+      "id": "c1_yassin_all_5",
+      "type": 0,
+      "speaker": "",
+      "text": "ياسين بيقفل الملف ببطء.",
+      "next": "c1_yassin_all_6"
+    },
+    {
+      "id": "c1_yassin_all_6",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "خلي بالك من المعلومات اللي بتسمعها. مش كل واحد بيقول إنه بيدور على الحقيقة بيكون عايزها.",
+      "next": "c1_yassin_all_7"
+    },
+    {
+      "id": "c1_yassin_all_7",
+      "type": 0,
+      "speaker": "adam",
+      "text": "حضرتك تعرفها؟",
+      "next": "c1_yassin_all_8"
+    },
+    {
+      "id": "c1_yassin_all_8",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "أعرف ملفها.",
+      "next": "c1_yassin_all_9"
+    },
+    {
+      "id": "c1_yassin_all_9",
+      "type": 0,
+      "speaker": "adam",
+      "text": "وده معناه إيه؟",
+      "next": "c1_yassin_all_10"
+    },
+    {
+      "id": "c1_yassin_all_10",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "معناه إنك لازم تتأكد من كل كلمة قبل ما تصدقها.",
+      "next": "c1_yassin_bonus"
+    },
+    {
+      "id": "c1_yassin_hide_1",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "في حد تاني كلمك؟",
+      "next": "c1_yassin_hide_2"
+    },
+    {
+      "id": "c1_yassin_hide_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "لأ.",
+      "next": "c1_yassin_hide_3"
+    },
+    {
+      "id": "c1_yassin_hide_3",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "متأكد؟",
+      "next": "c1_yassin_hide_4"
+    },
+    {
+      "id": "c1_yassin_hide_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أيوه.",
+      "next": "c1_yassin_hide_5"
+    },
+    {
+      "id": "c1_yassin_hide_5",
+      "type": 0,
+      "speaker": "",
+      "text": "ياسين بيراقب وشه.",
+      "next": "c1_yassin_hide_6",
+      "camera": "cu_yassin"
+    },
+    {
+      "id": "c1_yassin_hide_6",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "كويس. لأن أي معلومة ناقصة ممكن تقلب القضية كلها.",
+      "next": "c1_yassin_hide_7"
+    },
+    {
+      "id": "c1_yassin_hide_7",
+      "type": 0,
+      "speaker": "adam",
+      "text": "طب أنا أعمل إيه؟",
+      "next": "c1_yassin_hide_8"
+    },
+    {
+      "id": "c1_yassin_hide_8",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "متتحركش لوحدك، ومتخبيش دليل.",
+      "next": "c1_yassin_bonus"
+    },
+    {
+      "id": "c1_yassin_file_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "عايز أشوف الملف القديم.",
+      "next": "c1_yassin_file_2"
+    },
+    {
+      "id": "c1_yassin_file_2",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "مش متاح.",
+      "next": "c1_yassin_file_3"
+    },
+    {
+      "id": "c1_yassin_file_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "ليه؟",
+      "next": "c1_yassin_file_4"
+    },
+    {
+      "id": "c1_yassin_file_4",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "لأنه ملف تحقيق، مش ملف عام.",
+      "next": "c1_yassin_file_5"
+    },
+    {
+      "id": "c1_yassin_file_5",
+      "type": 0,
+      "speaker": "adam",
+      "text": "بس اسمي موجود فيه!",
+      "next": "c1_yassin_file_6"
+    },
+    {
+      "id": "c1_yassin_file_6",
+      "type": 0,
+      "speaker": "",
+      "text": "ياسين بيبص له طويل.",
+      "next": "c1_yassin_file_7",
+      "camera": "cu_yassin"
+    },
+    {
+      "id": "c1_yassin_file_7",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "عندك حق في سؤال واحد. اسمك ظهر في سجل قديم، لكن مش كمتهم.",
+      "next": "c1_yassin_file_8"
+    },
+    {
+      "id": "c1_yassin_file_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أمال كإيه؟",
+      "next": "c1_yassin_file_9"
+    },
+    {
+      "id": "c1_yassin_file_9",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "كشاهد محتمل.",
+      "next": "c1_yassin_file_10"
+    },
+    {
+      "id": "c1_yassin_file_10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا عمري ما شفت سليم!",
+      "next": "c1_yassin_file_11"
+    },
+    {
+      "id": "c1_yassin_file_11",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "دي بالضبط المشكلة اللي محتاجين نفهمها.",
+      "next": "c1_yassin_bonus"
+    },
+    {
+      "id": "c1_yassin_bonus",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_ytrust",
+          "next": "c1_yassin_bonus_1",
+          "require": {
+            "stats": [
+              {
+                "key": "Trust_Yassin",
+                "op": ">=",
+                "value": 21
+              }
+            ]
+          }
+        },
+        {
+          "id": "b_noytrust",
+          "next": "c1_yassin_end"
+        }
+      ]
+    },
+    {
+      "id": "c1_yassin_bonus_1",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "أنا هقولك حاجة خارج المحضر.",
+      "next": "c1_yassin_bonus_2",
+      "camera": "cu_yassin"
+    },
+    {
+      "id": "c1_yassin_bonus_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "اتفضل.",
+      "next": "c1_yassin_bonus_3"
+    },
+    {
+      "id": "c1_yassin_bonus_3",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "ليلة اختفاء سليم، كان في بلاغ عن دخول شخص للمبنى بعد إغلاقه.",
+      "next": "c1_yassin_bonus_4"
+    },
+    {
+      "id": "c1_yassin_bonus_4",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين؟",
+      "next": "c1_yassin_bonus_5"
+    },
+    {
+      "id": "c1_yassin_bonus_5",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "الاسم في السجل كان اسمك.",
+      "next": "c1_yassin_bonus_6"
+    },
+    {
+      "id": "c1_yassin_bonus_6",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مستحيل!",
+      "next": "c1_yassin_bonus_7",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_yassin_bonus_7",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "عارف إنك كنت صغير وقتها.",
+      "next": "c1_yassin_bonus_8"
+    },
+    {
+      "id": "c1_yassin_bonus_8",
+      "type": 0,
+      "speaker": "adam",
+      "text": "مين كتب اسمي؟",
+      "next": "c1_yassin_bonus_9"
+    },
+    {
+      "id": "c1_yassin_bonus_9",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "التوقيع مش واضح. وده السبب اللي خلاني أطلب إعادة فتح الملف.",
+      "next": "c1_yassin_bonus_10",
+      "onEnter": {
+        "setFlags": [
+          "YASSIN_REOPENED_CASE"
+        ]
+      }
+    },
+    {
+      "id": "c1_yassin_bonus_10",
+      "type": 0,
+      "speaker": "adam",
+      "text": "يعني حضرتك مصدقني؟",
+      "next": "c1_yassin_bonus_11"
+    },
+    {
+      "id": "c1_yassin_bonus_11",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "أنا مصدق إن الحقيقة لسه ناقصة.",
+      "next": "c1_yassin_end"
+    },
+    {
+      "id": "c1_yassin_end",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "يا آدم، أنا هقولك حاجة واحدة. لو حد اتصل بيك تاني، متحاولش تواجهه لوحدك.",
+      "next": "c1_yassin_end2",
+      "camera": "ots_yassin"
+    },
+    {
+      "id": "c1_yassin_end2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "حضرتك تعرف مين بيتصل؟",
+      "next": "c1_scene07_entry"
+    },
+    {
+      "id": "c1_scene07_entry",
+      "type": 0,
+      "speaker": "",
+      "text": "١١:٠٥ مساءً. آدم راجع شقته. الباب مش مقفول بالكامل.",
+      "next": "c1_home_1",
+      "camera": "wide_apartment",
+      "act": "scene07"
+    },
+    {
+      "id": "c1_home_1",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا قفلت الباب قبل ما أنزل…",
+      "next": "c1_home_2",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_home_2",
+      "type": 0,
+      "speaker": "",
+      "text": "الأثاث زي ما هو. بس في حاجة ناقصة… وعلى الطاولة ورقة جديدة.",
+      "next": "c1_home_3",
+      "camera": "wide_room"
+    },
+    {
+      "id": "c1_home_3",
+      "type": 0,
+      "speaker": "",
+      "text": "«متسألش عن سليم. اسأل عن الشخص اللي وقّع مكانه.»",
+      "next": "c1_home_4",
+      "camera": "cu_prop_note"
+    },
+    {
+      "id": "c1_home_4",
+      "type": 0,
+      "speaker": "",
+      "text": "الموبايل بيصوّت. صورة من كاميرا مراقبة: آدم نفسه وهو بيدخل الأرشيف.",
+      "next": "c1_home_5",
+      "camera": "cu_phone"
+    },
+    {
+      "id": "c1_home_5",
+      "type": 0,
+      "speaker": "",
+      "text": "«إنت مش لوحدك في اللعبة دي».",
+      "next": "c1_choice_6"
+    },
+    {
+      "id": "c1_choice_6",
+      "type": 1,
+      "speaker": "",
+      "text": "الساعة ١١:٠٥ مساءً… مين هتتصل بيه؟",
+      "options": [
+        {
+          "id": "c1_o_call_murad2",
+          "text": "[تتصل بمراد]",
+          "next": "c1_ally_murad",
+          "decisionId": "CH1_ALLY_MURAD",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Murad",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "ALLY_MURAD"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_call_laila2",
+          "text": "[تتصل بليلى]",
+          "next": "c1_ally_laila",
+          "decisionId": "CH1_ALLY_LAILA",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Laila",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "ALLY_LAILA"
+            ]
+          }
+        },
+        {
+          "id": "c1_o_call_yassin2",
+          "text": "[تروح لياسين]",
+          "next": "c1_ally_yassin",
+          "decisionId": "CH1_ALLY_YASSIN",
+          "effect": {
+            "stats": [
+              {
+                "key": "Trust_Yassin",
+                "add": 1
+              }
+            ],
+            "setFlags": [
+              "ALLY_YASSIN"
+            ]
+          }
+        }
+      ],
+      "next": "c1_ally_murad"
+    },
+    {
+      "id": "c1_ally_murad",
+      "type": 0,
+      "speaker": "adam",
+      "text": "لازم تيجي دلوقتي. في حاجة حصلت.",
+      "next": "c1_ally_murad_2"
+    },
+    {
+      "id": "c1_ally_murad_2",
+      "type": 0,
+      "speaker": "murad",
+      "text": "حاضر. بس متفتحش الباب لأي حد.",
+      "next": "c1_scene08_entry"
+    },
+    {
+      "id": "c1_ally_laila",
+      "type": 0,
+      "speaker": "adam",
+      "text": "ليلى، حد دخل شقتي.",
+      "next": "c1_ally_laila_2"
+    },
+    {
+      "id": "c1_ally_laila_2",
+      "type": 0,
+      "speaker": "laila",
+      "text": "محدش يقدر يدخل عندك من غير ما يعرف عنوانك. خليك مكانك.",
+      "next": "c1_scene08_entry"
+    },
+    {
+      "id": "c1_ally_yassin",
+      "type": 0,
+      "speaker": "adam",
+      "text": "حضرتك كنت محق. الموضوع أكبر مني.",
+      "next": "c1_ally_yassin_2"
+    },
+    {
+      "id": "c1_ally_yassin_2",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "استنى مكانك. هنتصرف.",
+      "next": "c1_scene08_entry"
+    },
+    {
+      "id": "c1_scene08_entry",
+      "type": 0,
+      "speaker": "",
+      "text": "اليوم التالي، ٩:٠٠ صباحًا. مكتب فاخر بإطلالة على القاهرة. يوسف قاعد ورا مكتبه وموبايله بيرن.",
+      "next": "c1_yusuf_1",
+      "camera": "wide_office",
+      "act": "scene08"
+    },
+    {
+      "id": "c1_yusuf_1",
+      "type": 0,
+      "speaker": "yusuf",
+      "text": "وصل الظرف؟",
+      "next": "c1_yusuf_2",
+      "camera": "ots_yusuf"
+    },
+    {
+      "id": "c1_yusuf_2",
+      "type": 0,
+      "speaker": "caller",
+      "text": "أيوه.",
+      "next": "c1_yusuf_3"
+    },
+    {
+      "id": "c1_yusuf_3",
+      "type": 0,
+      "speaker": "yusuf",
+      "text": "وآدم؟",
+      "next": "c1_yusuf_4"
+    },
+    {
+      "id": "c1_yusuf_4",
+      "type": 0,
+      "speaker": "caller",
+      "text": "بدأ يدور.",
+      "next": "c1_yusuf_5"
+    },
+    {
+      "id": "c1_yusuf_5",
+      "type": 0,
+      "speaker": "",
+      "text": "يوسف بيسكت.",
+      "next": "c1_yusuf_6",
+      "camera": "cu_yusuf"
+    },
+    {
+      "id": "c1_yusuf_6",
+      "type": 0,
+      "speaker": "yusuf",
+      "text": "كنت عارف إن اليوم ده هييجي.",
+      "next": "c1_yusuf_7"
+    },
+    {
+      "id": "c1_yusuf_7",
+      "type": 0,
+      "speaker": "caller",
+      "text": "نعمل إيه؟",
+      "next": "c1_yusuf_8"
+    },
+    {
+      "id": "c1_yusuf_8",
+      "type": 0,
+      "speaker": "",
+      "text": "بيصب بصره على صورة قديمة على المكتب.",
+      "next": "c1_yusuf_9",
+      "camera": "cu_prop_office_photo"
+    },
+    {
+      "id": "c1_yusuf_9",
+      "type": 0,
+      "speaker": "yusuf",
+      "text": "مفيش رجوع دلوقتي.",
+      "next": "c1_yusuf_10"
+    },
+    {
+      "id": "c1_yusuf_10",
+      "type": 0,
+      "speaker": "",
+      "text": "الكاميرا بتقرّب من الصورة: يوسف واقف جنب سليم… وفي الخلفية شخص تالت مش واضح.",
+      "next": "c1_ending_eval",
+      "camera": "cu_prop_office_photo"
+    },
+    {
+      "id": "c1_ending_eval",
+      "type": 2,
+      "speaker": "",
+      "text": "",
+      "options": [
+        {
+          "id": "b_end_a",
+          "next": "c1_endA_scene",
+          "require": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "op": ">=",
+                "value": 3
+              },
+              {
+                "key": "Trust_Laila",
+                "op": ">=",
+                "value": 42
+              }
+            ],
+            "allFlags": [
+              "FOUND_ARCHIVE_FILE"
+            ]
+          }
+        },
+        {
+          "id": "b_end_a2",
+          "next": "c1_endA_scene",
+          "require": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "op": ">=",
+                "value": 3
+              },
+              {
+                "key": "Trust_Murad",
+                "op": ">=",
+                "value": 56
+              }
+            ],
+            "allFlags": [
+              "FOUND_ARCHIVE_FILE"
+            ]
+          }
+        },
+        {
+          "id": "b_end_c",
+          "next": "c1_endC_scene",
+          "require": {
+            "stats": [
+              {
+                "key": "Evidence_Count",
+                "op": "<=",
+                "value": 1
+              },
+              {
+                "key": "Trust_Laila",
+                "op": "<=",
+                "value": 39
+              }
+            ],
+            "noneFlags": [
+              "FOUND_ARCHIVE_FILE"
+            ]
+          }
+        }
+      ],
+      "next": "c1_endB_scene"
+    },
+    {
+      "id": "c1_endA_scene",
+      "type": 0,
+      "speaker": "",
+      "text": "غرفة ليلى. آدم قاعد قدام الكمبيوتر. ملف صوتي قديم بيوصل.",
+      "next": "c1_endA_1",
+      "camera": "wide_office_laila",
+      "act": "ending_a"
+    },
+    {
+      "id": "c1_endA_1",
+      "type": 0,
+      "speaker": "",
+      "text": "بيشغّل التسجيل.",
+      "next": "c1_endA_2"
+    },
+    {
+      "id": "c1_endA_2",
+      "type": 0,
+      "speaker": "caller",
+      "text": "«لو التسجيل ده وصل لحد، يبقى أنا فشلت في إني أرجع.»",
+      "next": "c1_endA_3",
+      "camera": "cu_screen"
+    },
+    {
+      "id": "c1_endA_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "ده صوت سليم…",
+      "next": "c1_endA_4",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_endA_4",
+      "type": 0,
+      "speaker": "caller",
+      "text": "«آدم… لو بتسمع صوتي، يبقى هم وصلوا ليك.»",
+      "next": "c1_endA_5"
+    },
+    {
+      "id": "c1_endA_5",
+      "type": 0,
+      "speaker": "",
+      "text": "الشاشة بتسود.",
+      "next": "c1_postcredit_a"
+    },
+    {
+      "id": "c1_endA_end",
+      "type": 4,
+      "speaker": "",
+      "text": "",
+      "endingId": "CH1_A",
+      "endingTitle": "النهاية الأولى — الحقيقة",
+      "endingBody": "سمعت صوت سليم. القضية اتفتحت تاني — بس الملف اللي في إيدك ناقص صفحة."
+    },
+    {
+      "id": "c1_endB_scene",
+      "type": 0,
+      "speaker": "",
+      "text": "قسم الشرطة. ياسين بيفتح ملف جديد.",
+      "next": "c1_endB_1",
+      "camera": "wide_interrogation",
+      "act": "ending_b"
+    },
+    {
+      "id": "c1_endB_1",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "المرة دي مش هقدر أحميك.",
+      "next": "c1_endB_2",
+      "camera": "ots_yassin"
+    },
+    {
+      "id": "c1_endB_2",
+      "type": 0,
+      "speaker": "adam",
+      "text": "أنا معملتش حاجة.",
+      "next": "c1_endB_3"
+    },
+    {
+      "id": "c1_endB_3",
+      "type": 0,
+      "speaker": "yassin",
+      "text": "أتمنى تكون بتقول الحقيقة.",
+      "next": "c1_endB_4"
+    },
+    {
+      "id": "c1_endB_4",
+      "type": 0,
+      "speaker": "",
+      "text": "الكاميرا بتبعد عن الغرفة. بنسمع صوت الباب وهو بيتقفل.",
+      "next": "c1_postcredit_b"
+    },
+    {
+      "id": "c1_endB_end",
+      "type": 4,
+      "speaker": "",
+      "text": "",
+      "endingId": "CH1_B",
+      "endingTitle": "النهاية الثانية — المشتبه به",
+      "endingBody": "القضية اتقلبت عليك. ياسين مش قادر يحميك، والملف بقى باسمك."
+    },
+    {
+      "id": "c1_endC_scene",
+      "type": 0,
+      "speaker": "",
+      "text": "تاكسي بالليل. آدم بيبص من الشباك على شوارع القاهرة.",
+      "next": "c1_endC_1",
+      "camera": "wide_taxi",
+      "act": "ending_c"
+    },
+    {
+      "id": "c1_endC_1",
+      "type": 0,
+      "speaker": "",
+      "text": "بينزل شقة… جنبه ظرف بني على المقعد.",
+      "next": "c1_endC_2"
+    },
+    {
+      "id": "c1_endC_2",
+      "type": 0,
+      "speaker": "",
+      "text": "«كنت مستنيك.»",
+      "next": "c1_endC_3",
+      "camera": "cu_prop_envelope"
+    },
+    {
+      "id": "c1_endC_3",
+      "type": 0,
+      "speaker": "adam",
+      "text": "إنت جبت الظرف ده منين؟",
+      "next": "c1_endC_4",
+      "camera": "cu_adam"
+    },
+    {
+      "id": "c1_endC_4",
+      "type": 0,
+      "speaker": "",
+      "text": "السواق ماردش. قطع للسواد.",
+      "next": "c1_postcredit_c"
+    },
+    {
+      "id": "c1_endC_end",
+      "type": 4,
+      "speaker": "",
+      "text": "",
+      "endingId": "CH1_C",
+      "endingTitle": "النهاية الثالثة — الاختفاء",
+      "endingBody": "هربت من كل حاجة… والظرف لقاك في التاكسي."
+    },
+    {
+      "id": "c1_postcredit_a",
+      "type": 0,
+      "speaker": "",
+      "text": "شاشة سودا. صوت مسجّل قديم: «آدم… التوقيع اللي بتدور عليه مش توقيع يوسف. الشخص ده المفروض يكون مات من سبع سنين.»",
+      "next": "c1_endA_end",
+      "camera": "black"
+    },
+    {
+      "id": "c1_postcredit_b",
+      "type": 0,
+      "speaker": "",
+      "text": "غرفة تحقيق مقفولة. ياسين بيطلع صورة قديمة لآدم في السابعة عشرة. مكتوب على ظهرها: «آدم — شاهد رقم ٠٤».",
+      "next": "c1_endB_end",
+      "camera": "cu_prop_photo_old"
+    },
+    {
+      "id": "c1_postcredit_c",
+      "type": 0,
+      "speaker": "",
+      "text": "طريق صحراوي. السواق بيرجع له الظرف… وجواه صورة لسليم وخلفها صورة لآدم وهو طفل. لما بيرفع راسه، السواق مش موجود.",
+      "next": "c1_endC_end",
+      "camera": "wide_taxi"
+    }
+  ]
+}

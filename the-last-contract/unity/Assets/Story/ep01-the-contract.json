@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "id": "ep01",
+  "title": "العقد الأخير — الحلقة الأولى: مكتب الحاج",
+  "entry": "open_1",
+  "nodes": [
+    {
+      "id": "open_1",
+      "type": 0,
+      "speaker": "",
+      "text": "٢:٤٠ صباحاً. المكتب في الدور الأخير من عمارة في جاردن سيتي. الشبابيك مقفولة، والتكييف بيطنّ، والصوت الوحيد اللي بيعدّي هو صوت الكوباية وهي بتتحرك على الطربيزة.",
+      "next": "open_2"
+    },
+    {
+      "id": "open_2",
+      "type": 0,
+      "speaker": "",
+      "text": "آدم واقف. مش قاعد، ومش بيتكلم، ومش بيبص على الحاج لطفي — بيبص على الانعكاس في الإزاز.",
+      "next": "open_3"
+    },
+    {
+      "id": "open_3",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "اقعد يا آدم. إنت واقف زي العسكري.",
+      "next": "open_4"
+    },
+    {
+      "id": "open_4",
+      "type": 0,
+      "speaker": "آدم",
+      "text": "أنا مرتاح واقف.",
+      "next": "open_5"
+    },
+    {
+      "id": "open_5",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "أنا عارف إنك بتحب تقفل. آخر مرة اتكلمنا، قلت لي إنك خلاص. إنك عايز تسيب البلد.",
+      "next": "ask_1"
+    },
+    {
+      "id": "ask_1",
+      "type": 1,
+      "speaker": "",
+      "text": "الحاج لطفي بيحطّ ظرف على الطربيزة. مش بيدفعه ناحيتك — بيسيبه في النص، ويسحب إيده.",
+      "options": [
+        {
+          "id": "c1_who",
+          "text": "مين اللي في الظرف؟",
+          "next": "who_1",
+          "effect": { "stats": [ { "key": "fear.lotfy", "add": 5 } ] }
+        },
+        {
+          "id": "c1_money",
+          "text": "كام؟",
+          "next": "money_1",
+          "effect": { "stats": [ { "key": "fear.lotfy", "add": -5 }, { "key": "adam.resolve", "add": -5 } ] }
+        },
+        {
+          "id": "c1_silent",
+          "text": "[تسكت وتبصّ على الظرف]",
+          "next": "silent_1",
+          "effect": { "stats": [ { "key": "fear.lotfy", "add": 10 }, { "key": "adam.ghost", "add": 5 } ] }
+        }
+      ]
+    },
+
+    {
+      "id": "who_1",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "حد كان شغال معانا زمان. ساب الشغل من غير إذن، وواخد معاه حاجات مش بتاعته.",
+      "next": "who_2"
+    },
+    {
+      "id": "who_2",
+      "type": 0,
+      "speaker": "آدم",
+      "text": "اسمه إيه؟",
+      "next": "who_3"
+    },
+    {
+      "id": "who_3",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "افتح الظرف. الاسم جوه. أنا مش بحب أقول الأسماء بصوتي.",
+      "next": "silent_1"
+    },
+
+    {
+      "id": "money_1",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "أكتر من اللي طلبته. بكتير. وده اللي مخوّفني منك يا آدم — إنت مش غالي عليّا للدرجة دي.",
+      "next": "money_2"
+    },
+    {
+      "id": "money_2",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "افتح الظرف.",
+      "next": "silent_1"
+    },
+
+    {
+      "id": "silent_1",
+      "type": 2,
+      "branches": [
+        {
+          "require": { "stats": [ { "key": "fear.lotfy", "op": ">=", "value": 50 } ] },
+          "next": "tense_1"
+        }
+      ],
+      "next": "calm_1"
+    },
+
+    {
+      "id": "tense_1",
+      "type": 0,
+      "speaker": "",
+      "text": "لطفي بيسحب نَفَس طويل. إيده على الكوباية بترتجف مرة واحدة، وبعدها سكنت. الستارة اللي على وشه اتشالت.",
+      "next": "tense_2"
+    },
+    {
+      "id": "tense_2",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "إنت بتخاف مني يا آدم. ده كويس. اللي بيخاف بيسمع.",
+      "onEnter": { "stats": [ { "key": "adam.ghost", "add": 10 } ] },
+      "next": "envelope_1"
+    },
+
+    {
+      "id": "calm_1",
+      "type": 0,
+      "speaker": "",
+      "text": "لطفي بيضحك ضحكة قصيرة، وبيقرب الكوباية من شفايفه من غير ما يشرب.",
+      "next": "calm_2"
+    },
+    {
+      "id": "calm_2",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "البرود ده هو اللي خلاني أختارك من الأول. لكن البرود ده كمان هو اللي هيخليك تفتح الظرف وانت مش حاسس إنك بتفتح قبرك.",
+      "next": "envelope_1"
+    },
+
+    {
+      "id": "envelope_1",
+      "type": 3,
+      "action": "cinematic",
+      "param": "ep01_open_envelope",
+      "next": "reveal_1"
+    },
+
+    {
+      "id": "reveal_1",
+      "type": 0,
+      "speaker": "",
+      "text": "آدم بيقطع الورق بصوابعه. صورة واحدة مطبوعة. وش مش بيروح من الذاكرة.",
+      "onEnter": { "setFlags": [ "saw_target_photo" ], "stats": [ { "key": "adam.ghost", "set": 100, "useSet": true } ] },
+      "next": "reveal_2"
+    },
+    {
+      "id": "reveal_2",
+      "type": 0,
+      "speaker": "آدم",
+      "text": "…إنت جبت الصورة دي منين؟",
+      "next": "reveal_3"
+    },
+    {
+      "id": "reveal_3",
+      "type": 0,
+      "speaker": "الحاج لطفي",
+      "text": "إنت عارفه؟",
+      "next": "final_choice"
+    },
+
+    {
+      "id": "final_choice",
+      "type": 1,
+      "speaker": "",
+      "text": "في ثانية واحدة، كل حاجة في المكتب بقت جزء من المشهد: الكوباية، التكييف، إيد لطفي اللي لسه فوق الطربيزة.",
+      "options": [
+        {
+          "id": "fc_truth",
+          "text": "«ده أخويا.»",
+          "next": "end_truth",
+          "effect": { "setFlags": [ "adam_told_lotfy" ], "stats": [ { "key": "adam.resolve", "add": 15 }, { "key": "fear.lotfy", "add": 20 } ] }
+        },
+        {
+          "id": "fc_lie",
+          "text": "«لا. أول مرة أشوفه.»",
+          "next": "end_lie",
+          "effect": { "setFlags": [ "adam_lied_to_lotfy" ], "stats": [ { "key": "adam.resolve", "add": -15 }, { "key": "trust.nadine", "add": 5 } ] }
+        },
+        {
+          "id": "fc_take",
+          "text": "[تاخد الظرف وتسكت]",
+          "next": "end_take",
+          "effect": { "setFlags": [ "adam_accepted_silently" ], "stats": [ { "key": "adam.ghost", "add": 10 } ] }
+        }
+      ]
+    },
+
+    {
+      "id": "end_truth",
+      "type": 4,
+      "endingId": "ep01_A",
+      "endingTitle": "الحلقة الأولى — الصدق أمام الحاج",
+      "endingBody": "لطفي مسح الابتسامة. أول مرة. الاختيار ده هيتفتكر بعد ٤ فصول، لما تعرف مين اللي طلب العقد فعلاً."
+    },
+    {
+      "id": "end_lie",
+      "type": 4,
+      "endingId": "ep01_B",
+      "endingTitle": "الحلقة الأولى — الكذبة الأولى",
+      "endingBody": "آدم خرج من العمارة والساعة ٣:٠٥. نادين كانت واقفة في العربية المقابلة، وبتحسب دايرة الأرقام على اللوحة. الكذبة الأولى ليها شاهد."
+    },
+    {
+      "id": "end_take",
+      "type": 4,
+      "endingId": "ep01_C",
+      "endingTitle": "الحلقة الأولى — الطاعة",
+      "endingBody": "مفيش كلام اتقال. وده أخطر حاجة حصلت الليلة."
+    }
+  ]
+}

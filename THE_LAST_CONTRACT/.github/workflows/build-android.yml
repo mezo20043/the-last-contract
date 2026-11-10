@@ -1,0 +1,106 @@
+name: Unity 6 → استيراد + تقارير + APK
+
+# ⚠️ المشروع ده ما اتبناش ولا اتجرّب على أندرويد من أي بيئة حتى الآن.
+# الـworkflow ده هو أسرع طريق لنتيجة حقيقية **من غير ما تبعت باسوردك لأي حد**:
+# أنت بتحط UNITY_EMAIL و UNITY_PASSWORD كـSecrets في ريبوك بتاعك،
+# GitHub هو اللي بيسجّل الدخول ويشغّل Unity، وأنا بقرأ النواتج (لوج + APK).
+#
+# خطوات التشغيل كاملة (بالعربي، بالصور النصية) في GITHUB_CI.md
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - "Assets/**"
+      - "ProjectSettings/**"
+      - "Packages/**"
+      - ".github/workflows/**"
+
+jobs:
+  unity:
+    name: Unity 6000.0.28f1
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: فحص سريع للمشروع قبل تشغيل Unity
+        run: |
+          echo "== محتوى الجذر =="; ls -1
+          test -f ProjectSettings/ProjectVersion.txt || { echo "::error::مفيش ProjectSettings"; exit 1; }
+          echo "إصدار المحرر: $(cat ProjectSettings/ProjectVersion.txt | tr '\n' ' ')"
+          n=$(find Assets/_Project/Resources/Characters -name '*.fbx' | wc -l)
+          echo "موديلات FBX: $n"
+          [ "$n" -ge 4 ] || echo "::warning::ناقص موديلات — الشخصيات هتطلع بدائل بدائية"
+
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Android-${{ hashFiles('ProjectSettings/ProjectVersion.txt', 'Packages/manifest.json') }}
+          restore-keys: Library-Android- , Library-
+
+      # ── ١) تقرير التحقق من داخل المحرك (استيراد + Animator + Avatars) ──
+      - name: تقرير التحقق (TLC → 12)
+        uses: game-ci/unity-builder@v4
+        continue-on-error: true
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        with:
+          targetPlatform: StandaloneLinux64
+          unityVersion: auto
+          buildMethod: TLC.EditorTools.VerificationRunner.RunEditorVerification
+          allowDirtyBuild: true
+          customParameters: -nographics
+
+      - name: ارفع تقرير التحقق + الملفات المولّدة
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-report
+          path: |
+            VERIFICATION/**
+            Assets/_Project/Resources/Animators/**
+            Logs/**
+          if-no-files-found: warn
+
+      # ── ٢) بناء APK ──
+      - name: بناء APK (TLC → 6)
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        with:
+          targetPlatform: Android
+          unityVersion: auto
+          androidExportType: androidPackage
+          buildMethod: TLC.EditorTools.AndroidBuilder.BuildApkCI
+          allowDirtyBuild: true
+
+      - name: ارفع الـAPK
+        uses: actions/upload-artifact@v4
+        with:
+          name: TheLastContract-APK
+          path: Builds/Android/*.apk
+          if-no-files-found: error
+
+      - name: ارفع سجلات Unity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-logs
+          path: |
+            Logs/**
+            VERIFICATION/**
+            Builds/Android/*.txt
+          if-no-files-found: ignore

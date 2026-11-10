@@ -1,0 +1,29 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+crashlytics*
+.vs/
+.idea/
+.DS_Store
+
+# ═══ إضافات المرحلة ١ (حفظ مساحة اللقطة) ═══
+# الأصول الضخمة محفوظة في THE_LAST_CONTRACT_v2.0.zip كنسخة مرجعية
+Screenshots/
+*.fbx
+*.fbx.meta
+*.tar.xz

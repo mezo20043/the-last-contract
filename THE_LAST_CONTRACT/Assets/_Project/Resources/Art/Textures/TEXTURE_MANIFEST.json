@@ -1,0 +1,66 @@
+[
+  {
+    "key": "wood_floor",
+    "asset": "dark_wooden_planks",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/dark_wooden_planks",
+    "albedo": 701221,
+    "normal": 36641
+  },
+  {
+    "key": "wood_dark",
+    "asset": "dark_paneled_wood",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/dark_paneled_wood",
+    "albedo": 635595,
+    "normal": 37727
+  },
+  {
+    "key": "plaster_wall",
+    "asset": "grey_plaster",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/grey_plaster",
+    "albedo": 704079,
+    "normal": 44095
+  },
+  {
+    "key": "tile_ceramic",
+    "asset": "brown_floor_tiles",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/brown_floor_tiles",
+    "albedo": 842317,
+    "normal": 51378
+  },
+  {
+    "key": "fabric_dark",
+    "asset": "denim_fabric",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/denim_fabric",
+    "albedo": 886486,
+    "normal": 120645
+  },
+  {
+    "key": "metal_brushed",
+    "asset": "metal_plate",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/metal_plate",
+    "albedo": 692234,
+    "normal": 38639
+  },
+  {
+    "key": "concrete",
+    "asset": "brushed_concrete",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/brushed_concrete",
+    "albedo": 847278,
+    "normal": 68478
+  },
+  {
+    "key": "city_facade",
+    "asset": "concrete_tile_facade",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/concrete_tile_facade",
+    "albedo": 625160,
+    "normal": 45594
+  }
+]

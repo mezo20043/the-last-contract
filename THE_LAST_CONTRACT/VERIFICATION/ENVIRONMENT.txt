@@ -1,0 +1,64 @@
+# سجل فحص بيئة التشغيل — 2026-11-09 (محدَّث 08:05 UTC)
+
+> **تحديث مهم:** Unity 6 **اتنزّل واتثبّت واشتغل** في البيئة دي بعد إصرار المستخدم.
+> العائق الوحيد الباقي هو **الترخيص** (مش الرام، ومش التنزيل). التفاصيل تحت.
+
+---
+
+## ١) Unity — مثبّت بالفعل الآن
+
+| البند | القيمة |
+|---|---|
+| المسار | `/opt/unity/editor/Editor/Unity` |
+| النسخة | **6000.0.28f1** (f336aca0cab5) · `6000.0/staging` · Release |
+| الحجم | تار 4.51 GB (اتنزّل) ⇒ **7.9 GB** بعد الفك |
+| الثنائي | 92 MB · بيعمل تنفيذ فعلي |
+| المكتبات الناقصة اللي اتثبّتت | `libgtk-3-0` ورفاقه (23 حزمة) |
+| نتيجة الإقلاع | **البرنامج بيقلع** وبيوصل لخدمة الترخيص بنجاح |
+
+### سجل حقيقي من أول تشغيل (`/opt/tlc/first.log`)
+```
+Unity Editor version:    6000.0.28f1 (f336aca0cab5)
+Batch mode:              YES
+System name:             Linux
+Available memory:        1982 MB
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-user"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Error: Code 404 … Found 0 entitlement groups and 0 free entitlements
+No valid Unity Editor license found. Please activate your license.
+exit=1
+```
+
+**الترجمة:** المحرر شغّال وسليم، ووقف عند **الترخيص فقط**.
+
+## ٢) الرام — اتحسّنت بالـ swap
+```
+Mem:   1982 total · ~560 available
+Swap:  6143 total (ملف swap على القرص، اتفعّل بنجاح)
+```
+`swapon` نجح جوه الحاوية ⇒ إجمالي 8 GB منطقي. Unity بيقول `Available memory: 1982 MB`
+ومش وصل لمرحلة تحميل الأصول أصلاً (وقف قبلها). **لسه مش متأكد** إن الاستيراد الكامل
+هيعدّي في 8 GB على 2 كور — ده هيتعرف أول ما الترخيص يتفعّل.
+
+## ٣) اللي **مش** موجود ولسه عائق
+| البند | الأثر |
+|---|---|
+| `DISPLAY` / GPU / `/dev/dri` | **مفيش رندرة** ⇒ لقطات الشاشة من المحرر مستحيلة هنا، بس الاستيراد والتقارير headless شغالة |
+| Android SDK/NDK + Android module | بناء APK هنا محتاج تنزيل ~6 GB إضافية |
+| `/dev/kvm` | مفيش محاكي أندرويد |
+| **ترخيص Unity** | 🔴 **العائق الوحيد الحالي** — اتعمل ملف طلب تفعيل `UNITY_ACTIVATION_TLC.alf` |
+
+## ٤) الشبكة
+`download.unity3d.com` … 200 · سرعة التحميل المقيسة ~6.5 MB/s · التنزيل الكامل 4.51 GB في 11 دقيقة.
+
+## ٥) ملف الطلب (ALF)
+```
+/opt/tlc/Unity_v6000.0.28f1.alf        (815 بايت)
+/home/user/UNITY_ACTIVATION_TLC.alf     (نسخة للمستخدم)
+MachineID: QiQYIMOB5dxAXO7+cvdzX0ga1CI=
+```
+بيترفع على `https://license.unity3d.com/manual` بحساب Unity بتاع صاحب المشروع،
+والناتج ملف `.ulf` بيرجع هنا ويتفعّل بالأمر:
+```
+./tools/unity_here.sh license <الملف.ulf>
+```

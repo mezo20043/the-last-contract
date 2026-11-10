@@ -1,0 +1,19 @@
+# ملفات حساسة (Unity activation يحتوي MachineID · روابط دخول تحتوي tokens)
+*.alf
+login_*.log
+unity_login_out.log
+last_url.txt
+url_now.txt
+lic/
+.config/
+
+# الأرشيف القديم 99 ميجا — محتواه المهم (FBX) موجود في الريبو
+*.zip
+
+# مخرجات بناء Unity / .NET
+**/bin/
+**/obj/
+Library/
+Temp/
+Logs/
+*.csproj.user

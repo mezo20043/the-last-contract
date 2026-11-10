@@ -1,0 +1,64 @@
+════ سجل Unity Console الحقيقي — THE LAST CONTRACT ════
+المصدر: /opt/tlc/editor3.log · Unity 6000.0.28f1 · Linux headless (batchmode -nographics)
+التاريخ: 2026-11-09 09:10 UTC
+
+── بداية التشغيل والترخيص ──
+Unity Editor version:    6000.0.28f1 (f336aca0cab5)
+Batch mode:              YES
+Available memory:        1982 MB
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Client] Successfully resolved entitlement details
+
+── أول سطور الاستيراد ──
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+ImportWorker Server TCP listen port: 0
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) (LibraryAssetImporter) -> (artifact id: '2b667002a6a92593ad32c83f16f2a6ac') in 0.032182848 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Start importing Packages/com.unity.render-pipelines.core/Editor/PostProcessing/LensFlareResource/PolygonFlareThumbnail@2x.png using Guid(0047263fa58f91d49a61936e94358829) (TextureImporter) -> (artifact id: '6ee3b09b5b299dacc2ef7ae2cd066e60') in 0.026447735 seconds
+Start importing Packages/com.unity.render-pipelines.core/Editor/Icons/MipLevels/RenderGraphViewer/d_Resources@32.png using Guid(00a734322b2ba1249b58c24b688b3108) (TextureImporter) -> (artifact id: '9c060dc5beb74e6ebb4f384f25da5536') in 0.002361496 seconds
+Start importing Packages/com.unity.render-pipelines.universal/Textures/BlueNoise16/L/LDR_LLL1_23.png using Guid(10b6c6d22e73dea46a8ab36b6eebd629) (TextureImporter) -> (artifact id: 'c1a3a593c4c1f6122d6b901a6959fdec') in 0.001925617 seconds
+Start importing Packages/com.unity.render-pipelines.universal/Textures/FilmGrain/Medium01.png using Guid(1097e90e1306e26439701489f391a6c0) (TextureImporter) -> (artifact id: '90018651b0f0df4e432ec7897274ff21') in 0.019086092 seconds
+
+── توليد الأنظمة (كود المشروع) ──
+[TLC/Verify] التقرير اتكتب في Verification/editor-report.txt (32/32)
+
+── تقرير التحقق ──
+════════ THE LAST CONTRACT — تقرير التحقق (محرر) ════════
+  ✓ Main.unity موجود — Assets/_Project/Scenes/Main.unity
+  ✓ Play.unity موجود — Assets/_Project/Scenes/Play.unity
+  ✓ Main في Build Settings
+  ✓ Play في Build Settings
+  ✓ TLC_Character.controller موجود في Resources/Animators — Assets/_Project/Resources/Animators/TLC_Character.controller
+  ✓ الـ controller بيتحمّل كـ RuntimeAnimatorController
+  ✓ كليب Idle المولّد موجود — 14.00 ثانية
+  ✓ عدد موديلات FBX: 4/4
+  ✓ man-base-character-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ man-base-character-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ woman-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ woman-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ elderly-man-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ elderly-man-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ man-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ man-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ Missing Scripts — 0
+  ✓ آدم موجود في المشهد
+  ✓ كاميرا موجودة
+  ✓ متحكم الكاميرا موجود
+  ✓ إضاءة موجودة
+  ✓ بيئة الشقة موجودة
+  ✓ واجهة تحكم الموبايل موجودة
+  ✓ مدير الاتجاه موجود
+  ✓ GameBootstrap موجود
+  ✓ الفصل الأول
+  ✓ الفصل الثاني
+  ✓ الفصل الثالث
+  ✓ خط عربي Amiri
+  ✓ Color Space = Linear
+  ✓ الدوران تلقائي (رأسي + أفقي)
+  ✓ Active Input Handling — 1850303862
+── النتيجة: 32 نجح · 0 فشل ──
+
+── النهاية ──
+AssetDatabase: script compilation time: 2.949527s
+Exiting batchmode successfully now!

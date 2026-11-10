@@ -1,0 +1,50 @@
+﻿════════ THE LAST CONTRACT — تقرير التحقق (محرر) ════════
+التاريخ : 2026-11-09 09:08:28
+Unity   : 6000.0.28f1
+المنصة  : StandaloneLinux64
+
+── ١) المشاهد ──
+  ✓ Main.unity موجود — Assets/_Project/Scenes/Main.unity
+  ✓ Play.unity موجود — Assets/_Project/Scenes/Play.unity
+  ✓ Main في Build Settings
+  ✓ Play في Build Settings
+
+── ٢) Animator Controller ──
+  ✓ TLC_Character.controller موجود في Resources/Animators — Assets/_Project/Resources/Animators/TLC_Character.controller
+  ✓ الـ controller بيتحمّل كـ RuntimeAnimatorController
+  ✓ كليب Idle المولّد موجود — 14.00 ثانية
+
+── ٣) Humanoid Avatars ──
+  ✓ عدد موديلات FBX: 4/4
+  ✓ man-base-character-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ man-base-character-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ woman-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ woman-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ elderly-man-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ elderly-man-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+  ✓ man-rigged.fbx: نوع الحركة Humanoid — Human
+  ✓ man-rigged.fbx: Avatar صالح و Humanoid — isHuman = true
+
+── ٤) محتوى مشهد اللعب ──
+  ✓ Missing Scripts — 0
+  ✓ آدم موجود في المشهد
+  ✓ كاميرا موجودة
+  ✓ متحكم الكاميرا موجود
+  ✓ إضاءة موجودة
+  ✓ بيئة الشقة موجودة
+  ✓ واجهة تحكم الموبايل موجودة
+  ✓ مدير الاتجاه موجود
+  ✓ GameBootstrap موجود
+
+── ٥) الموارد ──
+  ✓ الفصل الأول
+  ✓ الفصل الثاني
+  ✓ الفصل الثالث
+  ✓ خط عربي Amiri
+
+── ٦) إعدادات المنصة ──
+  ✓ Color Space = Linear
+  ✓ الدوران تلقائي (رأسي + أفقي)
+  ✓ Active Input Handling — 1850303862
+
+── النتيجة: 32 نجح · 0 فشل ──

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "WoodenChair_01",
+    "fbx_bytes": 744092,
+    "textures": {
+      "diff": 147990,
+      "nor": 213336,
+      "rough": 142210
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/WoodenChair_01"
+  },
+  {
+    "id": "WoodenTable_01",
+    "fbx_bytes": 53372,
+    "textures": {
+      "diff": 160147,
+      "nor": 151350,
+      "rough": 202505
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/WoodenTable_01"
+  },
+  {
+    "id": "WoodenTable_03",
+    "fbx_bytes": 101532,
+    "textures": {
+      "diff": 154264,
+      "nor": 127455,
+      "rough": 233986
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/WoodenTable_03"
+  },
+  {
+    "id": "CoffeeTable_01",
+    "fbx_bytes": 340476,
+    "textures": {
+      "diff": 196775,
+      "nor": 168414,
+      "rough": 166554
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/CoffeeTable_01"
+  },
+  {
+    "id": "Sofa_01",
+    "fbx_bytes": 191292,
+    "textures": {
+      "diff": 134925,
+      "nor": 154517,
+      "rough": 99983
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/Sofa_01"
+  },
+  {
+    "id": "ArmChair_01",
+    "fbx_bytes": 251612,
+    "textures": {
+      "diff": 184246,
+      "nor": 289916,
+      "rough": 100070
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/ArmChair_01"
+  },
+  {
+    "id": "GreenChair_01",
+    "fbx_bytes": 226428,
+    "textures": {
+      "diff": 131727,
+      "nor": 213507,
+      "rough": 115623
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/GreenChair_01"
+  },
+  {
+    "id": "SchoolDesk_01",
+    "fbx_bytes": 135916,
+    "textures": {
+      "diff": 71566,
+      "nor": 85765,
+      "rough": 103462
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/SchoolDesk_01"
+  },
+  {
+    "id": "Shelf_01",
+    "fbx_bytes": 26588,
+    "textures": {
+      "diff": 153220,
+      "nor": 231393,
+      "rough": 235823
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/Shelf_01"
+  },
+  {
+    "id": "GothicCabinet_01",
+    "fbx_bytes": 600604,
+    "textures": {
+      "diff": 136344,
+      "nor": 169970,
+      "rough": 163883
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/GothicCabinet_01"
+  },
+  {
+    "id": "bar_chair_round_01",
+    "fbx_bytes": 665308,
+    "textures": {
+      "diff": 599006,
+      "nor": 442193,
+      "rough": 564417
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/bar_chair_round_01"
+  },
+  {
+    "id": "desk_lamp_arm_01",
+    "fbx_bytes": 2304508,
+    "textures": {
+      "diff": 702522,
+      "nor": 651826,
+      "rough": 578764
+    },
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/desk_lamp_arm_01"
+  }
+]

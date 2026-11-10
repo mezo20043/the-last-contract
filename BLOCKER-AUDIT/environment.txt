@@ -1,0 +1,41 @@
+══════ تقرير العوائق التقنية — Mon Nov  9 05:43:02 UTC 2026 ══════
+
+── ١) الذاكرة ──
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       729Mi       563Mi        81Mi       955Mi       1.2Gi
+الحد الأدنى لـ Unity 6 Editor: 8 جيجا رام (الموصى به 16)
+المتاح: 1.94 جيجا
+
+── ٢) مساحة القرص ──
+/dev/root        25G  4.7G   20G  20% /
+Unity 6 + Android SDK/NDK ≈ 15-20 جيجا
+
+── ٣) المعالج ──
+أنوية: 2
+
+── ٤) كرت الشاشة ──
+لا يوجد /dev/dri  →  مفيش GPU
+nvidia-smi غير موجود
+
+── ٥) تسريع المحاكي (KVM) ──
+لا يوجد /dev/kvm  →  مفيش محاكي أندرويد
+VMX/SVM في /proc/cpuinfo: 0
+
+── ٦) Unity / Android ──
+  ✗ unity
+  ✗ unityhub
+  ✗ Unity
+  ✓ java -> /usr/bin/java
+  ✓ javac -> /usr/bin/javac
+  ✗ adb
+  ✗ sdkmanager
+  ✗ gradle
+  ✗ dotnet
+
+── ٧) هل يوجد ترخيص Unity؟ ──
+  مفيش مجلد ترخيص
+  مفيش تثبيت Unity
+
+── ٨) جهاز متصل للاختبار؟ ──
+  مفيش USB للجهاز
+DISPLAY=<فاضي>  →  مفيش شاشة لاختبار بصري
