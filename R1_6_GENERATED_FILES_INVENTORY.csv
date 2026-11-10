@@ -1,0 +1,105 @@
+﻿المسار,النوع,GUID,التصنيف,سبب الحاجة,الحجم_بايت
+Assets/DefaultVolumeProfile.asset,asset,,قرار,"أصل URP فُقد وUnity أعاد توليده — محتاج قرارك",426
+"Assets/TextMesh Pro.meta",meta,011018f5f7f83fad8a25f6a0c3f335f2,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+"Assets/TextMesh Pro/Resources.meta",meta,7423d887e52c34e3cab2fce46d753d8f,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+"Assets/TextMesh Pro/Resources/TMP Settings.asset",asset,,ضروري,"المشروع بيستخدم TextMesh Pro (TMPEssentials/FontAssetBuilder)",1499
+"Assets/TextMesh Pro/Resources/TMP Settings.asset.meta",meta,e0014e32303ebb3a797d16ac45c720d2,ضروري,"المشروع بيستخدم TextMesh Pro (TMPEssentials/FontAssetBuilder)",1499
+Assets/UniversalRenderPipelineGlobalSettings.asset,asset,,قرار,"أصل URP فُقد وUnity أعاد توليده — محتاج قرارك",14032
+Assets/_Project/Editor/ChapterPlaytestCapture.cs.meta,meta,9d3a0b16e517da3f3963df0673eda0c3,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",25647
+Assets/_Project/Editor/ChapterPlaythrough.cs.meta,meta,40c1048d3d1aff041bc4d39c7c8cca3a,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",11329
+Assets/_Project/Editor/CollisionTest.cs.meta,meta,a8044db7a178896ccb303e5e7350cc02,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",22579
+Assets/_Project/Editor/EnvProbe.cs.meta,meta,9b2ded19268c5335d8249247fa3c8393,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",2569
+Assets/_Project/Editor/EnvironmentCapture.cs.meta,meta,4b1c5c9f1c9276bf2bb246604b371c64,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",14412
+Assets/_Project/Editor/FontAssetBuilder.cs.meta,meta,b25941e53503f93a7853a9d90e8b0426,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",3797
+Assets/_Project/Editor/MenuFlowCapture.cs.meta,meta,e44c70895b26042c7b74c3e88296cd9e,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",21822
+Assets/_Project/Editor/PlayModeCapture.cs.meta,meta,9e5ef5f4d737bce8cac96a2e9bc3938e,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",19756
+Assets/_Project/Editor/TLC_R1_5_MatCheck.cs,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",1655
+Assets/_Project/Editor/TLC_R1_5_MatCheck.cs.meta,meta,a15e8d15220cf7a6ca3aa1987ed1d6bf,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",1655
+Assets/_Project/Editor/TLC_R1_5_PlayModeTest.cs,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",-1
+Assets/_Project/Editor/TLC_R1_5_PlayModeTest.cs.meta,meta,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",-1
+Assets/_Project/Editor/TLC_R1_5_RenderTest.cs,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",5507
+Assets/_Project/Editor/TLC_R1_5_RenderTest.cs.meta,meta,5e4ca69d465824a75ab0f2705dc1cd06,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",5507
+Assets/_Project/Editor/TLC_R1_5_Validator.cs,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",8167
+Assets/_Project/Editor/TLC_R1_5_Validator.cs.meta,meta,afcf9f8530c3c7d8cb09beb5c83b61a7,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",8167
+Assets/_Project/Editor/TMPEssentials.cs.meta,meta,81e8f9dec8b2f618da5260682fc63494,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",5050
+Assets/_Project/Editor/URPSetup.cs.meta,meta,c84cdb85c57b670a2b3cce711891a954,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",3000
+Assets/_Project/Resources/Art/Textures/Exterior/city_facade_albedo.jpg.meta,meta,a1c25b3f769ac66eb811ae796e449220,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",625160
+Assets/_Project/Resources/Art/Textures/Exterior/concrete_albedo.jpg.meta,meta,54d66a857a0d20bd584e3ac130d95e45,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",847278
+Assets/_Project/Resources/Art/Textures/TEXTURE_MANIFEST.json.meta,meta,bea0173b0e0ba163a8311e8755c55412,ضروري,"مانيفست أصول — GUID للثبات",1511
+Assets/_Project/Resources/Props.meta,meta,f9e124f38367802f0b72881f701bdf98,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/ASSET_MANIFEST.json.meta,meta,7259e2578d104ce2795bd2c9cd557656,ضروري,"مانيفست أصول — GUID للثبات",2726
+Assets/_Project/Resources/Props/ArmChair_01.meta,meta,140f466a30bec6719bbf967aa931873c,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/ArmChair_01/ArmChair_01.fbx.meta,meta,c451f124ffadb523eb9550ad76562e9d,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",251612
+Assets/_Project/Resources/Props/ArmChair_01/ArmChair_01_diff.jpg.meta,meta,26ebde362cc1d8f84aa63bf7821f0b5b,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",184246
+Assets/_Project/Resources/Props/ArmChair_01/ArmChair_01_nor.jpg.meta,meta,25750abb8e72c2c53828c28bf5d172a8,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",289916
+Assets/_Project/Resources/Props/ArmChair_01/ArmChair_01_rough.jpg.meta,meta,e81d4833173aaae0db20c42de0033306,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",100070
+Assets/_Project/Resources/Props/CoffeeTable_01.meta,meta,da8a48a2c5d0c3c829f253567acfb267,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/CoffeeTable_01/CoffeeTable_01.fbx.meta,meta,f03f5e972874fd51497be59dcd6a9b0f,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",340476
+Assets/_Project/Resources/Props/CoffeeTable_01/CoffeeTable_01_diff.jpg.meta,meta,f4e4296a84eee9948b2105568c7d2e85,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",196775
+Assets/_Project/Resources/Props/CoffeeTable_01/CoffeeTable_01_nor.jpg.meta,meta,daa063c6dc54462dbaa46473c1784597,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",168414
+Assets/_Project/Resources/Props/CoffeeTable_01/CoffeeTable_01_rough.jpg.meta,meta,9f98be5a4aaf15557b1f74054c0f6fd8,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",166554
+Assets/_Project/Resources/Props/GothicCabinet_01.meta,meta,2c40ba4792455fea982c051c73a7a1bf,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/GothicCabinet_01/GothicCabinet_01.fbx.meta,meta,28cfbb7d04eabe3debe7ce496d56f0cb,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",600604
+Assets/_Project/Resources/Props/GothicCabinet_01/GothicCabinet_01_diff.jpg.meta,meta,931c854bc50ef4a35a071adc29d974a0,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",136344
+Assets/_Project/Resources/Props/GothicCabinet_01/GothicCabinet_01_nor.jpg.meta,meta,ae4c4687ab68c6d3aa9fa8bf480471dc,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",169970
+Assets/_Project/Resources/Props/GothicCabinet_01/GothicCabinet_01_rough.jpg.meta,meta,85e8a0395d39a0ac79267e66f6d13811,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",163883
+Assets/_Project/Resources/Props/GreenChair_01.meta,meta,9492c36d06c96384baabe951255bffc1,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/GreenChair_01/GreenChair_01.fbx.meta,meta,5e1aebb2e6de797d59c5e37350a2a86d,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",226428
+Assets/_Project/Resources/Props/GreenChair_01/GreenChair_01_diff.jpg.meta,meta,8b805e80758617068ba4e65a29683322,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",131727
+Assets/_Project/Resources/Props/GreenChair_01/GreenChair_01_nor.jpg.meta,meta,4aae3b205790b69eaa1a38e3eb7ba308,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",213507
+Assets/_Project/Resources/Props/GreenChair_01/GreenChair_01_rough.jpg.meta,meta,7db814d1ba900dcaaa16f7f8c30bdaad,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",115623
+Assets/_Project/Resources/Props/SchoolDesk_01.meta,meta,d8783abc3025217eab9001394f76b842,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/SchoolDesk_01/SchoolDesk_01.fbx.meta,meta,70313c3f635c436839358759f4233bae,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",135916
+Assets/_Project/Resources/Props/SchoolDesk_01/SchoolDesk_01_diff.jpg.meta,meta,53f530106573e3129ae1f867dbb7dd50,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",71566
+Assets/_Project/Resources/Props/SchoolDesk_01/SchoolDesk_01_nor.jpg.meta,meta,4c67c3e12d6786ec0a54a10cd0ec4fe2,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",85765
+Assets/_Project/Resources/Props/SchoolDesk_01/SchoolDesk_01_rough.jpg.meta,meta,1471383d50530de5ab841fc4f836df4c,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",103462
+Assets/_Project/Resources/Props/Shelf_01.meta,meta,e4d5f0f07b938a0d08f0ad61fc7f4193,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/Shelf_01/Shelf_01.fbx.meta,meta,e88348c4825d07dd987601b1b2144258,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",26588
+Assets/_Project/Resources/Props/Shelf_01/Shelf_01_diff.jpg.meta,meta,9495908e5f80b83b2a91b3b27f821bc8,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",153220
+Assets/_Project/Resources/Props/Shelf_01/Shelf_01_nor.jpg.meta,meta,93be0de26b287f5c3a562f63a1501033,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",231393
+Assets/_Project/Resources/Props/Shelf_01/Shelf_01_rough.jpg.meta,meta,069a12a90aa6ab3e984d0c64e1022dd7,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",235823
+Assets/_Project/Resources/Props/Sofa_01.meta,meta,d6cef2ae2e470fad9a390da9db28ee67,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/Sofa_01/Sofa_01.fbx.meta,meta,9844733e96b693abc9eee64a68b6796a,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",191292
+Assets/_Project/Resources/Props/Sofa_01/Sofa_01_diff.jpg.meta,meta,1d06ddff06e3ece8ba9350d5612a3d04,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",134925
+Assets/_Project/Resources/Props/Sofa_01/Sofa_01_nor.jpg.meta,meta,5399c1458e09edba99a246fd170ea720,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",154517
+Assets/_Project/Resources/Props/Sofa_01/Sofa_01_rough.jpg.meta,meta,a340f12b14b991de99457d31af74b76c,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",99983
+Assets/_Project/Resources/Props/WoodenChair_01.meta,meta,bd5bf0c8884fdeda0be07340bdddf681,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/WoodenChair_01/WoodenChair_01.fbx.meta,meta,0621f39eb72f4bb23bf3e479489a9a1f,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",744092
+Assets/_Project/Resources/Props/WoodenChair_01/WoodenChair_01_diff.jpg.meta,meta,3c90410e0981fbc63910aea834c73b63,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",147990
+Assets/_Project/Resources/Props/WoodenChair_01/WoodenChair_01_nor.jpg.meta,meta,74139a67a9cd642e89bbe78307982859,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",213336
+Assets/_Project/Resources/Props/WoodenChair_01/WoodenChair_01_rough.jpg.meta,meta,e81be9aab4a08ee75bad183bcbc09c23,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",142210
+Assets/_Project/Resources/Props/WoodenTable_01.meta,meta,aa9d48d630c300354a019eee92d4f349,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/WoodenTable_01/WoodenTable_01.fbx.meta,meta,d8f9d3fdd404f8d88ad054b2c2b5d754,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",53372
+Assets/_Project/Resources/Props/WoodenTable_01/WoodenTable_01_diff.jpg.meta,meta,9f56f867d4ec5f1869db8d28a1233dd2,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",160147
+Assets/_Project/Resources/Props/WoodenTable_01/WoodenTable_01_nor.jpg.meta,meta,4fa3e70201f16df01b123a84d59845cf,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",151350
+Assets/_Project/Resources/Props/WoodenTable_01/WoodenTable_01_rough.jpg.meta,meta,9b5ac2d23911db29c940243c883640b9,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",202505
+Assets/_Project/Resources/Props/WoodenTable_03.meta,meta,c3c1d43df4eb609a79b21ba7aaf1112c,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/WoodenTable_03/WoodenTable_03.fbx.meta,meta,8275609718a6e65e8ae067613cfa0dc5,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",101532
+Assets/_Project/Resources/Props/WoodenTable_03/WoodenTable_03_diff.jpg.meta,meta,66c04271166588186b90f272764185ef,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",154264
+Assets/_Project/Resources/Props/WoodenTable_03/WoodenTable_03_nor.jpg.meta,meta,6f07829ccec00da09b4dfe55f090a2b6,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",127455
+Assets/_Project/Resources/Props/WoodenTable_03/WoodenTable_03_rough.jpg.meta,meta,c5b6f01edfca23b6eb5f1504a0ee80b7,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",233986
+Assets/_Project/Resources/Props/bar_chair_round_01.meta,meta,af371e46f74752a61a1f15b922e97c4c,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Assets/_Project/Resources/Props/bar_chair_round_01/bar_chair_round_01.fbx.meta,meta,3eb56dbaa64411ae0b87ddef78fd3160,ضروري,"موديل Prop مستخدم عبر Resources — GUID لازم للمواد/المراجع",665308
+Assets/_Project/Resources/Props/bar_chair_round_01/bar_chair_round_01_diff.jpg.meta,meta,5e5930f1b70b15f799d5e5a62b85922f,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",599006
+Assets/_Project/Resources/Props/bar_chair_round_01/bar_chair_round_01_nor.jpg.meta,meta,fa75681fc83f6a304b4dc8b9ff3e8d32,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",442193
+Assets/_Project/Resources/Props/bar_chair_round_01/bar_chair_round_01_rough.jpg.meta,meta,403f020ef164e24da9308f921cadbddc,ضروري,"تكستشرة Prop — GUID لازم لربط المادة",564417
+Assets/_Project/Scripts/Cinematics/DialogueShotDirector.cs.meta,meta,cbf37c1ed323c6f1baec950d4121d1ce,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",12490
+Assets/_Project/Scripts/Settings/ArabicShaper.cs.meta,meta,4faeff43c8bcc7a4eb87e4451dd47c05,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",15139
+Assets/_Project/Scripts/Settings/ArabicTextBinder.cs.meta,meta,775a4ab942d382737ba368013b4554a7,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",2166
+Assets/_Project/Scripts/Settings/CinematicLook.cs.meta,meta,199c474c62d03c2bb8ac1b39244f103c,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",5224
+Assets/_Project/Scripts/World/EnvironmentLibrary.Exterior.cs.meta,meta,ca9c347a0863d74799846d94290af82c,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",28990
+Assets/_Project/Scripts/World/EnvironmentLibrary.cs.meta,meta,2f59b51a2c61b5b00b665a612032acad,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",38611
+Assets/_Project/Scripts/World/LightUtil.cs.meta,meta,6cf183b771fec66e381e50d11c95132a,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",1241
+Assets/_Project/Scripts/World/ModelFit.cs.meta,meta,e64ac491704e9d896a500eaaaeeb7328,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",3870
+Assets/_Project/Scripts/World/PropLibrary.cs.meta,meta,615142ef90f2a89aba6c9e30258e61c3,ضروري,"سكربت بدون meta ⇒ GUID ثابت لازم (وإلا ينكسر أي مرجع)",9303
+Assets/_Project/Settings.meta,meta,366c442e54f4e4a19ba0bd7586c240cd,ضروري,"meta مجلد — يثبّت GUID المجلد",0
+Packages/packages-lock.json,asset,,ضروري,"تثبيت نسخ الباقات (URP 17.0.3 …) — يُرفع عادةً",6671
+ProjectSettings/PackageManagerSettings.asset,asset,,ضروري,"إعداد مشروع ولّده Unity 6 (URP/قوالب مشاهد)",985
+ProjectSettings/SceneTemplateSettings.json,asset,,ضروري,"إعداد مشروع ولّده Unity 6 (URP/قوالب مشاهد)",3535
+ProjectSettings/URPProjectSettings.asset,asset,,ضروري,"إعداد مشروع ولّده Unity 6 (URP/قوالب مشاهد)",410
+R1_5_CHARACTERS.png,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",272160
+R1_5_MATERIALS.txt,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",735
+R1_5_PLAYMODE_TEMP.unity,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",7896
+R1_5_PLAYMODE_TEMP.unity.meta,meta,00000000000000000000000000000000,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",7896
+R1_5_RENDER_TEST.txt,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",375
+R1_5_VALIDATION.json,asset,,مؤقت,"أداة/ناتج من R1.5 — مش جزء من المشروع",2617
