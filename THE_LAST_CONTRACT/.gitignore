@@ -27,3 +27,13 @@ Screenshots/
 *.fbx
 *.fbx.meta
 *.tar.xz
+
+# ═══ R1.8: أصول الـProps معتمدة (بتُستخدم فعليًا في بناء الغرف) ═══
+# كانت مستثناة بـ*.fbx ⇒ الـGUIDs والملفات مكانتش في git ⇒ أي clone جديد مش هيقدر يبني الأثاث
+!Assets/_Project/Resources/Props/**/*.fbx
+!Assets/_Project/Resources/Props/**/*.fbx.meta
+
+# ═══ R1.8.1: مجلدات النسخ الاحتياطية المحلية ═══
+
+# مخرجات سكربت التحقق (تتولد في كل تشغيل)
+R1_6_VALIDATION.json

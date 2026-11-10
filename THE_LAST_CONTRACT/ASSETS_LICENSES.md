@@ -1,12 +1,16 @@
 # سجل الأصول والتراخيص — THE LAST CONTRACT
 
-> آخر تحديث: 2026-11-09
+> آخر تحديث: 2026-11-10 (R1.8 — إضافة قسم Props + تصحيحات توثيقية)
 
 ## ١) أصول مولّدة داخل المشروع (الملكية الكاملة)
 
-كل الأصول الفنية والصوتية في هذا المستودع **مُصنّعة برمجياً من الصفر** بواسطة
-سكربتات موجودة في `tools/`. مفيش أي ملف محمّل من الإنترنت، ولا أي عيّنة
-مسروقة أو مجهولة المصدر.
+الأصول اللي في **هذا القسم** **مُصنّعة برمجياً من الصفر** بواسطة سكربتات موجودة في `tools/`.
+
+> ⚠️ **تصحيح (R1.8):** كانت العبارة هنا «مفيش أي ملف محمّل من الإنترنت» — **وده مش صحيح**.
+> المشروع بيحتوي على أصول طرف ثالث محمّلة من الإنترنت وموثّقة بالكامل:
+> **٤ موديلات شخصيات** من Grab3D (قسم ١-ب) · **١١ موديل أثاث + ٣٣ خامة** من Poly Haven (قسم ١-هـ) ·
+> **خط Amiri** من Google Fonts (قسم ١-ج). كلهم بتراخيص مفتوحة (CC0 / OFL) ومصادرهم مسجّلة تحت.
+> مفيش أصل مجهول المصدر أو غير موثّق.
 
 | النوع | المولّد | العدد | الحجم | الترخيص |
 |---|---|---|---|---|
@@ -104,6 +108,41 @@ python3 tools/gen_textures.py   # يعيد توليد كل الخامات
 
 ---
 
+## ١-هـ) موديلات الأثاث (Props) — CC0 · طرف ثالث
+
+**١١ موديل أثاث + ٣٣ خامة** من [Poly Haven](https://polyhaven.com) — كلها **CC0 1.0 Universal**.
+
+| # | المعرّف | حجم FBX | خامات | المصدر |
+|---|---|---:|---|---|
+| 1 | `WoodenChair_01` | 726.7 KB | diff + nor + rough | [polyhaven.com/a/WoodenChair_01](https://polyhaven.com/a/WoodenChair_01) |
+| 2 | `bar_chair_round_01` | 649.7 KB | diff + nor + rough | [polyhaven.com/a/bar_chair_round_01](https://polyhaven.com/a/bar_chair_round_01) |
+| 3 | `GothicCabinet_01` | 586.5 KB | diff + nor + rough | [polyhaven.com/a/GothicCabinet_01](https://polyhaven.com/a/GothicCabinet_01) |
+| 4 | `CoffeeTable_01` | 332.5 KB | diff + nor + rough | [polyhaven.com/a/CoffeeTable_01](https://polyhaven.com/a/CoffeeTable_01) |
+| 5 | `ArmChair_01` | 245.7 KB | diff + nor + rough | [polyhaven.com/a/ArmChair_01](https://polyhaven.com/a/ArmChair_01) |
+| 6 | `GreenChair_01` | 221.1 KB | diff + nor + rough | [polyhaven.com/a/GreenChair_01](https://polyhaven.com/a/GreenChair_01) |
+| 7 | `Sofa_01` | 186.8 KB | diff + nor + rough | [polyhaven.com/a/Sofa_01](https://polyhaven.com/a/Sofa_01) |
+| 8 | `SchoolDesk_01` | 132.7 KB | diff + nor + rough | [polyhaven.com/a/SchoolDesk_01](https://polyhaven.com/a/SchoolDesk_01) |
+| 9 | `WoodenTable_03` | 99.2 KB | diff + nor + rough | [polyhaven.com/a/WoodenTable_03](https://polyhaven.com/a/WoodenTable_03) |
+| 10 | `WoodenTable_01` | 52.1 KB | diff + nor + rough | [polyhaven.com/a/WoodenTable_01](https://polyhaven.com/a/WoodenTable_01) |
+| 11 | `Shelf_01` | 26.0 KB | diff + nor + rough | [polyhaven.com/a/Shelf_01](https://polyhaven.com/a/Shelf_01) |
+
+- **الموقع:** `Assets/_Project/Resources/Props/<id>/`
+- **الإجمالي:** ٣.١٨ MB موديلات + ٦.١٥ MB خامات (٣٣ صورة 1024×1024)
+- **الترخيص:** CC0 1.0 Universal (مِلك عام) — **استخدام تجاري بلا إسناد**.
+- **سجل الأصول التفصيلي:** `Assets/_Project/Resources/Props/ASSET_MANIFEST.json` (١٢ مدخل — يشمل `desk_lamp_arm_01` اللي ملفه مش موجود · انظر قسم ٣).
+- **الاستخدام:** `PropLibrary` ← `EnvironmentLibrary` ← `GameBootstrap` (بناء الغرف وقت التشغيل).
+- **أصل مسترجع (R1.8.1):** `desk_lamp_arm_01` — كان مطلوب في الكود (٣ نداءات + `PropLibrary.All` + المانيفست) وملفه مفقود.
+  اتنزّل من Poly Haven (`https://polyhaven.com/a/desk_lamp_arm_01` · **CC0**) بنفس الاسم والمسار ونفس أسماء الخامات،
+  والموديل اتلفّ حول محوره في Blender (+90° X) ليطابق قاعدة الأصول التانية (Z-up) — **بدون أي تعديل في الكود**.
+  | البند | القيمة |
+  |---|---|
+  | FBX | 3.1 MB · 25 SkinnedMeshRenderer + 4 MeshFilter · 2,349 رأس · 3,344 مثلث |
+  | خامات | `_diff` + `_nor` + `_rough` (1024×1024) |
+  | المصدر | Poly Haven — Yann Kervran (Rigging) · Kuutti Siitonen (Modeling & texturing) |
+- **ملاحظة تقنية:** خامات `_rough` (١١ ملف · ١.٨٦ MB) **مش مستخدمة في الكود** — `PropLibrary` بيبني المادة من `diff` + `nor` بس. الملفات محفوظة كما هي، واتعمل لها استبعاد من بناء أندرويد فقط (R1.8).
+
+---
+
 ## ١-د) الحوار الصوتي — **غير موجود**
 
 | البند | الحالة |
@@ -125,9 +164,13 @@ python3 tools/gen_textures.py   # يعيد توليد كل الخامات
 |---|---|---|---|
 | Universal Render Pipeline | 17.0.3 | Unity Companion License | خط الرسم والإضاءة |
 | Cinemachine | 3.1.3 | Unity Companion License | كاميرات سينمائية |
-| Input System | 1.11.2 | Unity Companion License | تحكم اللمس |
-| TextMeshPro | (مدمجة) | Unity Companion License | واجهة ونصوص |
-| Timeline | 1.7.x | Unity Companion License | تسلسل المشاهد |
+| TextMeshPro | (مدمجة في ugui 2.0.0) | Unity Companion License | واجهة ونصوص |
+| Unity UI (ugui) | 2.0.0 | Unity Companion License | واجهة المستخدم |
+
+> **تصحيح (R1.8):** الجدول ده كان بيذكر `Input System 1.11.2` و `Timeline 1.7.x`
+> — **الحزمتين مش موجودتين في `Packages/manifest.json`** أصلاً. المصدر الوحيد للحقيقة
+> هو `Packages/manifest.json` (١٣ مدخل) + `Packages/packages-lock.json` (٣٠ مدخل مع التبعيات).
+> المشروع بيستخدم تحكم اللمس عبر `Input` القديم/UGUI، مفيش Input System Package.
 
 كلها مجانية للاستخدام التجاري ضمن شروط Unity.
 
