@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <DefineConstants>UNITY_EDITOR</DefineConstants>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>TLCCheck</AssemblyName>
+    <OutputType>Library</OutputType>
+    <NoWarn>CS0169;CS0414;CS0649;CS0108;CS0114;CS0660;CS0661;CS0067;CS8981</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Stubs/**/*.cs" />
+    <Compile Include="../THE_LAST_CONTRACT/Assets/_Project/**/*.cs" />
+  </ItemGroup>
+
+</Project>
