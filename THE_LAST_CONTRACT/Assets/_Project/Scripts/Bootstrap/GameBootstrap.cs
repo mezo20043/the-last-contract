@@ -1319,7 +1319,17 @@ namespace TLC.Bootstrap
             Shot shot = default;
             bool has = false;
 
-            if (hint.StartsWith("cu_"))
+            // A2: البروبس/الشاشات/الحيط ليه لقطة تانية — الكاميرا بتدخل عليها من
+            // ناحية اللاعب بدل ما تتحسب "رأس شخصية" (كانت 24 لقطة بتنتهي على وش آدم).
+            if (IsPropShot(hint, out string propKey))
+            {
+                var p = ResolveShotSubject(propKey);
+                shot = _dialogueCamera.CloseUp(p);
+                shot.duration = 2.2f;
+                Debug.Log($"[TLC/Camera/A2] لقطة 'دليل' {hint} → {p.name} على {p.position}");
+                has = true;
+            }
+            else if (hint.StartsWith("cu_"))
             {
                 var s = ResolveShotSubject(hint.Substring(3));
                 shot = _dialogueCamera.CloseUp(s); has = true;
@@ -1332,9 +1342,22 @@ namespace TLC.Bootstrap
             }
             else if (hint.StartsWith("wide_"))
             {
-                var s = ResolveShotSubject(hint.Substring(5));
-                var p = s != null ? s.position : focus.position;
-                shot = _dialogueCamera.Wide(p, 4.6f, 2.1f); has = true;
+                // A2: wide_cafe / wide_archive / wide_office … اسم **مكان** مش شخصية.
+                // قبل الإصلاح كان بيروح لـResolveShotSubject ⇒ رأس آدم كـfallback
+                // ⇒ كل اللقطات الواسعة كانت مركزة على آدم بدل اتساع المكان.
+                string place = hint.Substring(5);
+                Vector3 widePoint;
+                if (TryResolveWideAnchor(place, out Vector3 anchor))
+                {
+                    widePoint = anchor;
+                }
+                else
+                {
+                    var s = ResolveShotSubject(place);
+                    widePoint = s != null ? s.position : focus.position;
+                    Debug.LogWarning($"[TLC/Camera/A2] wide '{place}' مش معروف — مركز اللقطة على {widePoint}");
+                }
+                shot = _dialogueCamera.Wide(widePoint, 4.6f, 2.1f); has = true;
             }
             else if (hint == "black")
             {
@@ -1370,29 +1393,145 @@ namespace TLC.Bootstrap
             return best;
         }
 
-        /// <summary>"adam" / "murad" / "prop_envelope" / "prop_photo" … → نقطة في المشهد.</summary>
+        // ─────────────── A2: تمييز لقطات الأدلة (Props) عن لقطات الأشخاص ───────────────
+
+        /// <summary>
+        /// الأسماء اللي بتبدأ بـcu_ لكنها **مش شخصية** — دليل/شاشة/حيطة/صورة.
+        /// المشكلة الأصلية: ApplyCameraHint كانت بتعاملها كشخصية، وResolveShotSubject
+        /// كانت بترجّع رأس آدم كـfallback ⇒ 24 لقطة دليل على وش آدم.
+        /// </summary>
+        static bool IsPropShot(string hint, out string propKey)
+        {
+            propKey = null;
+            if (string.IsNullOrEmpty(hint)) return false;
+
+            // لازم تبدأ بـcu_ وما تكونش شخصية معروفة
+            string body = hint.StartsWith("cu_") ? hint.Substring(3) : hint;
+            if (body.StartsWith("prop_")) body = body.Substring(5);
+
+            if (body.Contains("adam") || body.Contains("murad") || body.Contains("laila") ||
+                body.Contains("yassin") || body.Contains("yusuf")) return false;
+
+            string[] markers = { "prop_", "phone", "screen", "wall", "photo", "note", "file",
+                                 "log", "contract", "contents", "envelope", "record", "letter", "safe" };
+            foreach (var m in markers)
+            {
+                if (body.Contains(m)) { propKey = body; return true; }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// A2: اسم المكان في اللقطة الواسعة (cafe / archive / office …) → نقطة في العالم.
+        /// الأولوية: مرساة الكاميرا "wide" للموقع الحالي، وبعدها موقع المكان نفسه لو
+        /// اتبنى، وإلا مكان اللاعب.
+        /// </summary>
+        bool TryResolveWideAnchor(string place, out Vector3 point)
+        {
+            point = Vector3.zero;
+            if (string.IsNullOrEmpty(place)) return false;
+
+            string p = place.ToLowerInvariant();
+            // "office_laila" / "doorway" / "stairs" … بناخد الجزء الأول اللي بيدل على مكان
+            var kind = EnvironmentLibrary.LocationForActPlace(p);
+
+            if (kind.HasValue)
+            {
+                // لو المكان ده هو الحالي، مرساة الكاميرا "wide" أسرع وأدق
+                if (_currentLocation != null && _currentLocation.Kind == kind.Value &&
+                    _currentLocation.CameraAnchors != null &&
+                    _currentLocation.CameraAnchors.TryGetValue("wide", out var currentWide))
+                {
+                    point = currentWide;
+                    return true;
+                }
+
+                if (_locations.TryGetValue(kind.Value, out var set) && set != null &&
+                    set.CameraAnchors != null && set.CameraAnchors.TryGetValue("wide", out var wide))
+                {
+                    point = wide;
+                    return true;
+                }
+
+                // المكان مش مبني لسه — نستخدم نقطة اللاعب كمركز مؤقت مُعلَن
+                if (_player != null)
+                {
+                    point = _player.transform.position;
+                    Debug.LogWarning($"[TLC/Camera/A2] wide '{place}' — المكان {kind.Value} مش مبني، اللقطة على اللاعب.");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>"adam" / "murad" / "prop_envelope" / "cu_phone" … → نقطة في المشهد.</summary>
         Transform ResolveShotSubject(string key)
         {
             var head = _player != null ? _player.transform : null;
             if (string.IsNullOrEmpty(key)) return head;
 
+            // A2: كل مسارات "الدليل" بترجّع Transform للبروب نفسه (أو للاعب كحل أخير مُعلَن)
+            if (IsPropShot(key, out string propBody))
+            {
+                key = "prop_" + propBody;
+            }
+
             if (key.StartsWith("prop_"))
             {
-                string p = key.Substring(5);
+                string p = key.Substring(5).ToLowerInvariant();
 
-                // الأولوية لموقع المشهد الحالي (مقهى/أرشيف/مكتب…) — أهم من مراسي الشقة
+                // 1) أدق تطابق في مراسي الموقع الحالي (مقهى/مكتب/أرشيف/تحقيق/مكتب يوسف)
                 if (_currentLocation != null && _currentLocation.PropAnchors != null)
                 {
+                    if (_currentLocation.PropAnchors.TryGetValue(p, out var exact) && exact != null)
+                        return exact;
+
+                    Transform best = null; int bestLen = 0;
                     foreach (var kv in _currentLocation.PropAnchors)
-                        if (p.Contains(kv.Key) || kv.Key.Contains(p))
-                            return kv.Value;
+                    {
+                        if (kv.Value == null) continue;
+                        string k = kv.Key.ToLowerInvariant();
+                        if (p.Contains(k) || k.Contains(p))
+                        {
+                            if (k.Length > bestLen) { bestLen = k.Length; best = kv.Value; }
+                        }
+                    }
+                    if (best != null) return best;
                 }
 
-                if (_apartment == null) return head;
-                if (p.Contains("envelope") || p.Contains("note") || p.Contains("contents")) return _apartment.EnvelopeAnchor;
-                if (p.Contains("phone")) return _apartment.PhoneAnchor;
-                if (p.Contains("door")) return _apartment.DoorAnchor;
-                return _apartment.PhotoAnchor;
+                // 2) الشقة — مراسي حقيقية
+                if (_apartment != null)
+                {
+                    if (p.Contains("phone"))   return _apartment.PhoneAnchor;
+                    if (p.Contains("door"))    return _apartment.DoorAnchor;
+                    if (p.Contains("envelope") || p.Contains("note") || p.Contains("contents"))
+                        return _apartment.EnvelopeAnchor;
+                    if (p.Contains("photo") || p.Contains("screen") || p.Contains("wall"))
+                        return _apartment.PhotoAnchor;
+                }
+
+                // 3) مفيش مرساة مناسبة → أقرب بروب ظاهر، وإلا **اللاعب مع لوج واضح**
+                //    (مش رأس آدم بصمت زي الأول)
+                if (_currentLocation != null && _currentLocation.PropAnchors != null)
+                {
+                    Transform nearest = null; float bestD = float.MaxValue;
+                    foreach (var kv in _currentLocation.PropAnchors)
+                    {
+                        if (kv.Value == null) continue;
+                        float d = (kv.Value.position - (head != null ? head.position : Vector3.zero)).sqrMagnitude;
+                        if (d < bestD) { bestD = d; nearest = kv.Value; }
+                    }
+                    if (nearest != null)
+                    {
+                        Debug.LogWarning($"[TLC/Camera/A2] بروب '{p}' مش موجود في " +
+                                         $"{(string.IsNullOrEmpty(_currentLocation.DisplayName) ? "الموقع" : _currentLocation.DisplayName)} — " +
+                                         $"بنستخدم أقرب دليل '{nearest.name}'.");
+                        return nearest;
+                    }
+                }
+
+                Debug.LogWarning($"[TLC/Camera/A2] بروب '{p}' مش موجود في المشهد الحالي — الكاميرا على اللاعب.");
+                return head;
             }
 
             if (key == "adam") return head;

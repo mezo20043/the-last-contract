@@ -84,6 +84,25 @@ namespace TLC.World
             }
         }
 
+        /// <summary>
+        /// A2: اسم مكان من اللقطة الواسعة (wide_cafe / wide_archive / wide_newsroom /
+        /// wide_police / wide_office / wide_apartment …) → Location. للمراسي فقط،
+        /// **مش** تغيير لمنطق LocationForAct.
+        /// </summary>
+        public static Location? LocationForActPlace(string place)
+        {
+            if (string.IsNullOrEmpty(place)) return null;
+            string p = place.ToLowerInvariant();
+            if (p.Contains("cafe"))     return Location.Cafe;
+            if (p.Contains("newsroom") || p.Contains("news")) return Location.Newsroom;
+            if (p.Contains("archive"))  return Location.Archive;
+            if (p.Contains("police") || p.Contains("interrogation")) return Location.Police;
+            if (p.Contains("office"))   return Location.Office;
+            if (p.Contains("apartment") || p.Contains("room") || p.Contains("doorway") ||
+                p.Contains("stairs") || p.Contains("taxi")) return Location.Apartment;
+            return null;
+        }
+
         static Vector3 OriginOf(Location loc)
         {
             switch (loc)
