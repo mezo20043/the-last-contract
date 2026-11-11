@@ -110,6 +110,22 @@ namespace TLC.Core
             SetStat(OrgSuspicion, 25f);
         }
 
+        // ── A1: ربط العقدة بفصلها (شبكة أمان للتوافق مع الحفظ القديم) ──
+        // الحقل ChapterId بيُكتب من GameBootstrap وقت الحفظ. لو حفظ قديم/تالف جه
+        // بلا ChapterId، بنستنتج الفصل من بادئة العقدة (c1_ / ch2_ / ch3_) —
+        // كل العقد في الفصول التلاتة بتتبع البادئة دي، وما فيهاش تعارض.
+        public static readonly string[] ChapterIds = { "chapter01", "chapter02", "chapter03" };
+
+        /// <summary>"ch2_c3" → "chapter02" · أي حاجة غير معروفة → null (بدون تخمين).</summary>
+        public static string ChapterOfNodeId(string nodeId)
+        {
+            if (string.IsNullOrEmpty(nodeId)) return null;
+            if (nodeId.StartsWith("c1_"))  return ChapterIds[0];
+            if (nodeId.StartsWith("ch2_")) return ChapterIds[1];
+            if (nodeId.StartsWith("ch3_")) return ChapterIds[2];
+            return null;
+        }
+
         // ────────────────────────── حفظ ──────────────────────────
 
         public GameStateDto ToDto()
@@ -121,6 +137,7 @@ namespace TLC.Core
             return new GameStateDto
             {
                 chapterId = ChapterId,
+                chapterOfNode = ChapterOfNodeId(CurrentNodeId), // A1
                 currentNodeId = CurrentNodeId,
                 statKeys = keys,
                 statValues = vals,
@@ -154,6 +171,13 @@ namespace TLC.Core
     {
         public int version = 1;
         public string chapterId;
+
+        // A1: الفصل المستنتَج من العقدة. اختياري تمامًا:
+        //   · الحفظ القديم (بلا الحقل) ⇒ JsonUtility بيسيبه null ⇒ الكود بيتجاهله.
+        //   · الحفظ الجديد ⇒ بيتكتب دايمًا من CurrentNodeId.
+        //   · version زي ما هي (1) عشان الأكواد القديمة ما ترفضش الحفظ.
+        public string chapterOfNode;
+
         public string currentNodeId;
         public List<string> statKeys = new List<string>();
         public List<float> statValues = new List<float>();

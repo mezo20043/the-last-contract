@@ -196,12 +196,15 @@ namespace TLC.Bootstrap
 
         void ApplySessionRequest(PlayEntryMode mode, int chapter)
         {
+            // A1: الفصل يبقى معروف قبل أي حفظ، وأي طلب من القائمة بيتقصّ عقدة اللعب
+            // عشان Continue يرجع لنفس الفصل بعد الإغلاق.
             switch (mode)
             {
                 case PlayEntryMode.Continue: ContinueGame();  break;
                 case PlayEntryMode.Chapter:  StartChapter(chapter); break;
                 default:                     StartNewGame();  break;
             }
+            StampChapter();
         }
 
         void UpdateMenuContext() => RefreshMenuContext();
@@ -719,6 +722,7 @@ namespace TLC.Bootstrap
 
             _state.ResetToDefaults();
             _chapterIndex = 0;
+            StampChapter();                       // A1: نيوجيم معروف من أول لحظة
 
             var asset = Resources.Load<TextAsset>(chapterResources[0]);
             if (asset == null) { Debug.LogError("[TLC] الفصل الأول مش موجود."); return; }
@@ -741,18 +745,26 @@ namespace TLC.Bootstrap
                 return;
             }
 
-            int idx = System.Array.IndexOf(chapterResources, "Story/" + _state.ChapterId);
-            if (idx < 0) idx = 0;
+            // A1: تحقق بدل السقوط الصامت — ChapterId أولًا، وبعده الفصل المستنتَج من العقدة
+            int idx = ChapterIndexOf(_state.ChapterId);
+            if (idx < 0) idx = ChapterIndexOf(GameState.ChapterOfNodeId(_state.CurrentNodeId));
+            if (idx < 0)
+            {
+                Debug.LogWarning($"[TLC/A1] الحفظ بلا فصل معروف (chapterId='{_state.ChapterId}' · " +
+                                 $"chapterOfNode='{GameState.ChapterOfNodeId(_state.CurrentNodeId)}') — بنبدأ من الفصل الأول.");
+                idx = 0;
+            }
 
             var asset = Resources.Load<TextAsset>(chapterResources[idx]);
             if (asset == null)
             {
-                Debug.LogError($"[TLC] الفصل {_state.ChapterId} مش موجود.");
+                Debug.LogError($"[TLC] الفصل {chapterResources[idx]} مش موجود.");
                 StartNewGame();
                 return;
             }
 
             _chapterIndex = idx;
+            StampChapter();                       // A1: أي حفظ بعد كده بيبقى صح
             _runner.SwitchStory(asset.text);
 
             if (_menu != null) _menu.Hide();
@@ -784,6 +796,7 @@ namespace TLC.Bootstrap
 
             _state.ResetToDefaults();
             _chapterIndex = idx;
+            StampChapter();                       // A1: الفصل يبقى معروف قبل أي حفظ
             _runner.SwitchStory(asset.text);
 
             if (_menu != null) _menu.Hide();
@@ -801,7 +814,7 @@ namespace TLC.Bootstrap
         void SaveTo(int menuSlot)
         {
             int slot = SaveSystem.ManualSlotA + Mathf.Clamp(menuSlot, 0, 2);
-            _state.ChapterId = chapterResources[_chapterIndex].Replace("Story/", "");
+            StampChapter();                       // A1: مصدر واحد للحقيقة (كان هنا مباشرة)
             bool ok = SaveSystem.Save(slot, _state);
             if (_audio != null) _audio.PlaySfx(ok ? "ui_click" : "ui_back");
             RefreshMenuContext();
@@ -814,15 +827,33 @@ namespace TLC.Bootstrap
             if (!SaveSystem.Load(slot, _state)) return;
 
             CloseMenus();
-            int idx = System.Array.IndexOf(chapterResources, "Story/" + _state.ChapterId);
-            if (idx < 0) idx = 0;
+
+            // A1: نفس منطق Continue — بلا سقوط صامت
+            int idx = ChapterIndexOf(_state.ChapterId);
+            if (idx < 0) idx = ChapterIndexOf(GameState.ChapterOfNodeId(_state.CurrentNodeId));
+            if (idx < 0)
+            {
+                Debug.LogWarning($"[TLC/A1] الحفظ اليدوي بلا فصل معروف — بنبدأ من الفصل الأول.");
+                idx = 0;
+            }
 
             var asset = Resources.Load<TextAsset>(chapterResources[idx]);
             if (asset == null) return;
 
             _chapterIndex = idx;
+            StampChapter();                       // A1
             _runner.SwitchStory(asset.text);
             if (_ui != null) _ui.Build(_runner);
+
+            // A1: لو العقدة مش في الفصل المحمّل، منعديش عقدة غلط للسرد
+            if (string.IsNullOrEmpty(_state.CurrentNodeId) ||
+                _runner.Story == null || _runner.Story.Get(_state.CurrentNodeId) == null)
+            {
+                Debug.LogWarning($"[TLC/A1] العقدة '{_state.CurrentNodeId}' مش في {chapterResources[idx]} — " +
+                                 "بنبدأ من مدخل الفصل.");
+                _runner.Begin();
+                return;
+            }
             _runner.BeginAt(_state.CurrentNodeId);
         }
 
@@ -1439,6 +1470,7 @@ namespace TLC.Bootstrap
             }
 
             _chapterIndex = chapterIndex;
+            StampChapter();                       // A1: الفصل الجديد يبقى معروف قبل أي حفظ
             Progress.UnlockChapter(chapterIndex + 1);
             Progress.SetLastChapter(chapterResources[chapterIndex]);
             RefreshMenuContext();
@@ -1466,6 +1498,7 @@ namespace TLC.Bootstrap
             // تخزين سريع للتجربة
             if (Input.GetKeyDown(KeyCode.F5))
             {
+                StampChapter();                   // A1: مسار الحفظ الخامس
                 SaveSystem.Save(SaveSystem.ManualSlotA, _state);
                 Debug.Log("[TLC] حفظ يدوي → خانة A");
             }
@@ -1482,6 +1515,43 @@ namespace TLC.Bootstrap
                 if (_menu != null && _menu.IsOpen) _menu.Back();
                 else OpenPause();
             }
+        }
+
+        // ────────────────────────── A1: فصل الحفظ ──────────────────────────
+
+        /// <summary>
+        /// A1: مصدر واحد لحقيقة "الفصل الحالي" في الحالة المحفوظة.
+        /// قبل الإصلاح كان السطر ده موجود جوّه SaveTo() بس، فكل الحفظات
+        /// التلقائية (NarrativeRunner:221 · حدث save · عند النهاية) كانت
+        /// بتتكتب بلا ChapterId ⇒ Continue كان بيرجع للفصل الأول.
+        /// </summary>
+        void StampChapter()
+        {
+            if (chapterResources == null || chapterResources.Length == 0) return;
+            if (_chapterIndex < 0 || _chapterIndex >= chapterResources.Length) return;
+            _state.ChapterId = chapterResources[_chapterIndex].Replace("Story/", "");
+        }
+
+        /// <summary>
+        /// A1: "chapter02" أو "Story/chapter02" أو "chapter02.json" → 1 · غير معروف → -1.
+        /// (مفيش سقوط صامت: المنادي بيقرر الـfallback ويسجّل لوج.)
+        /// </summary>
+        int ChapterIndexOf(string chapterId)
+        {
+            if (string.IsNullOrEmpty(chapterId) || chapterResources == null) return -1;
+
+            string id = chapterId.Trim();
+            if (id.EndsWith(".json")) id = id.Substring(0, id.Length - 5);
+            if (id.StartsWith("Story/")) id = id.Substring(6);
+
+            for (int i = 0; i < chapterResources.Length; i++)
+            {
+                var res = chapterResources[i];
+                if (res.EndsWith(".json")) res = res.Substring(0, res.Length - 5);
+                if (res.StartsWith("Story/")) res = res.Substring(6);
+                if (string.Equals(res, id, System.StringComparison.OrdinalIgnoreCase)) return i;
+            }
+            return -1;
         }
 
         // ────────────────────────── مساعدات ──────────────────────────
