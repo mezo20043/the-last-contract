@@ -37,3 +37,17 @@ Screenshots/
 
 # مخرجات سكربت التحقق (تتولد في كل تشغيل)
 R1_6_VALIDATION.json
+
+# ═══ A/B Stabilization: مخرجات مولّدة (لا تُرفع) ═══
+
+# مخرجات أدوات التحقق (VerificationRunner) — يُعاد إنشاؤها في كل تشغيل
+# الاسم مميّز عمدًا عن VERIFICATION/ (التوثيق المتعقَّب) — منعًا لتصادم
+# حالة الأحرف على Windows/macOS.
+VerificationOut/
+
+# أمان إضافي: المسار القديم لو ظهر من نسخة سابقة (مثبّت بجذر المشروع).
+/Verification/
+
+# إعدادات URP المولّدة تلقائيًا من الحزمة (UniversalProjectSettings.Save)
+# المسار محدَّد بدقة: لا يغطي أي ملف مشروع آخر
+/ProjectSettings/URPProjectSettings.asset

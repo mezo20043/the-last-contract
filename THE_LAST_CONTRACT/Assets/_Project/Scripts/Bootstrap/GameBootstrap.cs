@@ -238,6 +238,12 @@ namespace TLC.Bootstrap
                 _audio.PlayChapterSting();
             }
 
+            // B-STAB: المسار الوحيد اللي بيوصل لـ_runner.Begin() بدون StampChapter.
+            // Start() → OpeningRoutine() (showTitleMenu = false) كان بيسيب
+            // _state.ChapterId = null وقت ApplyAct (OnLineShown) وأول حفظ تلقائي.
+            // لازم قبل OpeningCinematic وقبل PlayChapterCard (يعني قبل أي ApplyAct).
+            if (string.IsNullOrEmpty(_state.ChapterId)) StampChapter();
+
             // مشهد افتتاحي سينمائي قبل أول سطر
             if (openWithCinematic) yield return OpeningCinematic();
 
@@ -950,7 +956,19 @@ namespace TLC.Bootstrap
                     break;
 
                 case NarrativeRunner.ActSave:
-                    SaveSystem.Save(SaveSystem.AutoSlot, _state);
+                    // B-STAB: حماية محلية — لا اعتماد على invariant بعيد (StampChapter@LoadFrom).
+                    // _state بتفضل null في مشهد القائمة (Awake بيعمل return قبل التهيئة).
+                    if (_state == null)
+                    {
+                        Debug.LogError("[TLC/ActSave] _state == null — الحفظ التلقائي اتلغى: " +
+                                       "مفيش حالة صالحة تُحفظ.");
+                        _runner.ResumeAfterEvent();   // ما نسيبش السرد متوقف
+                        break;
+                    }
+                    // لا استبدال لأي ChapterId موجود — بس لو فاضي بنختمه.
+                    if (string.IsNullOrEmpty(_state.ChapterId)) StampChapter();
+                    if (!SaveSystem.Save(SaveSystem.AutoSlot, _state))
+                        Debug.LogError("[TLC/ActSave] SaveSystem.Save فشل — راجع السجل فوق.");
                     _runner.ResumeAfterEvent();
                     break;
 
@@ -1216,7 +1234,13 @@ namespace TLC.Bootstrap
                 _currentLocation = null;
                 _currentLocationKind = kind;
                 Debug.Log("[TLC/Loc] شقة آدم");
-                return new EnvironmentLibrary.LocationSet
+
+                // A2-STAB: الشقة كانت بترجع LocationSet بدون CameraAnchors، وApartmentBuilder
+                // مالوش أي مرساة كاميرا (5 مراسي كيانات فقط). النتيجة: TryResolveWideAnchor
+                // مكانش يلاقي "wide" للشقة ⇒ wide_room/wide_apartment/wide_doorway/wide_stairs/
+                // wide_taxi تسقط على نقطة اللاعب. المراسي تحت مشتقة من مراسي ApartmentBuilder
+                // الموجودة (PlayerSpawn / DoorAnchor + TransformPoint على حدود الغرفة).
+                var apartmentSet = new EnvironmentLibrary.LocationSet
                 {
                     Kind = kind,
                     Root = _apartment != null ? _apartment.transform : null,
@@ -1225,6 +1249,17 @@ namespace TLC.Bootstrap
                         ? _apartment.PlayerSpawn.position : Vector3.zero,
                     SpawnYaw = 0f
                 };
+
+                if (_apartment != null)
+                {
+                    // مصدر واحد للمراسي — نفس الدالة اللي TryApartmentCameraAnchor بيستخدمها.
+                    ApplyApartmentCameraAnchors(apartmentSet.CameraAnchors);
+                    Debug.Log($"[TLC/Loc/A2-STAB] شقة آدم: {apartmentSet.CameraAnchors.Count} مرساة كاميرا");
+                }
+
+                // مهم: لا نضع apartmentSet في _currentLocation — أول سطر في UseLocation بيرجع
+                // بدري لو _currentLocation != null، وده هيمنع إعادة ضبط الإضاءة والـSetActive.
+                return apartmentSet;
             }
 
             if (!_locations.TryGetValue(kind, out var set) || set == null)
@@ -1430,6 +1465,48 @@ namespace TLC.Bootstrap
         }
 
         /// <summary>
+        /// A2-STAB: المصدر الوحيد لمراسي كاميرا الشقة.
+        /// القيم مشتقة من مراسي ApartmentBuilder الموجودة (PlayerSpawn / DoorAnchor).
+        /// fallback الـSpawn موحّد: _apartment.transform.position في كل الاستدعاءات،
+        /// عشان UseLocation وTryApartmentCameraAnchor ما يختلفوش أبدًا.
+        /// </summary>
+        void ApplyApartmentCameraAnchors(Dictionary<string, Vector3> anchors)
+        {
+            if (anchors == null || _apartment == null) return;
+
+            var t = _apartment.transform;
+            Vector3 spawn = _apartment.PlayerSpawn != null
+                ? _apartment.PlayerSpawn.position
+                : t.position;
+            Vector3 door = _apartment.DoorAnchor != null
+                ? _apartment.DoorAnchor.position
+                : t.TransformPoint(new Vector3(0f, 1f, -2.94f));
+
+            anchors["wide"]    = t.TransformPoint(new Vector3(0f, 1.2f, 0f));
+            anchors["desk"]    = spawn + new Vector3(0f, 1.1f, 1.4f);
+            anchors["window"]  = t.TransformPoint(new Vector3(0f, 1.8f, 3f));
+            anchors["doorway"] = door;
+            anchors["door"]    = door;
+            anchors["stairs"]  = door + new Vector3(0f, 0f, -0.6f);
+            anchors["taxi"]    = door + new Vector3(0f, 0f, -0.6f);
+        }
+
+        /// <summary>
+        /// A2-STAB: مرساة كاميرا واحدة للشقة — بتستدعي المصدر الوحيد فوق
+        /// عشان TryResolveWideAnchor تشوف المراسي من غير ما نلمس _currentLocation.
+        /// ترجع false لو المفتاح مش معروف (مش بترجع نقطة اللاعب).
+        /// </summary>
+        bool TryApartmentCameraAnchor(string key, out Vector3 point)
+        {
+            point = Vector3.zero;
+            if (_apartment == null || string.IsNullOrEmpty(key)) return false;
+
+            var anchors = new Dictionary<string, Vector3>();
+            ApplyApartmentCameraAnchors(anchors);
+            return anchors.TryGetValue(key, out point);
+        }
+
+        /// <summary>
         /// A2: اسم المكان في اللقطة الواسعة (cafe / archive / office …) → نقطة في العالم.
         /// الأولوية: مرساة الكاميرا "wide" للموقع الحالي، وبعدها موقع المكان نفسه لو
         /// اتبنى، وإلا مكان اللاعب.
@@ -1459,6 +1536,20 @@ namespace TLC.Bootstrap
                 {
                     point = wide;
                     return true;
+                }
+
+                // A2-STAB: الشقة مبنيّة في _apartment ومش في _locations — بنسأل مراسيها مباشرة
+                if (kind.Value == EnvironmentLibrary.Location.Apartment)
+                {
+                    string k = (p == "apartment" || p == "room") ? "wide" : p;
+                    if (TryApartmentCameraAnchor(k, out Vector3 aptPoint))
+                    {
+                        point = aptPoint;
+                        Debug.Log($"[TLC/Camera/A2-STAB] wide '{place}' → مرساة الشقة '{k}' على {aptPoint}");
+                        return true;
+                    }
+                    Debug.LogWarning($"[TLC/Camera/A2-STAB] wide '{place}' — مفيش مرساة شقة للمفتاح '{k}'.");
+                    return false;
                 }
 
                 // المكان مش مبني لسه — نستخدم نقطة اللاعب كمركز مؤقت مُعلَن
@@ -1564,6 +1655,9 @@ namespace TLC.Bootstrap
                 Debug.Log($"[TLC] نهاية جديدة اتكشفت ({Progress.SeenCount}/{MenuModel.EndingCount})");
 
             if (_audio != null) _audio.PlaySfx("ending_sting", 0.9f);
+            // B-STAB: نفس المخاطرة — لو النهاية اتوصلت بدون StampChapter
+            // (مسار OpeningRoutine) الحفظ بيطلع بـchapterId فارغ.
+            if (string.IsNullOrEmpty(_state.ChapterId)) StampChapter();
             SaveSystem.Save(SaveSystem.AutoSlot, _state);   // حفظ تلقائي عند النهاية
             RefreshMenuContext();
 

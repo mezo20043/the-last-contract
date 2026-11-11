@@ -106,8 +106,8 @@ Android SDK / adb     : غير موجود        → لا بناء APK
 
 | المنيو | بيعمل إيه | المخرج |
 |---|---|---|
-| **`TLC → 12 · تقرير التحقق الشامل`** | يفحص المشاهد · يبني الـ controller لو ناقص · يقرا نوع كل FBX ويطبع الـ Avatar و`isHuman` · يعد Missing Scripts في `Play` · الموارد · إعدادات المنصة | `Verification/editor-report.txt` |
-| **`TLC → 13 · تشغيل تلقائي + لقطات + سجل`** | يفتح `Play.unity` · يشغّل · يستنى ثانية · يدفع العصا لقدام · يجري · يلفّ الكاميرا · يبعت زر التفاعل · يقيس السرعة وقيم الـ Animator · يصوّر 5 لقطات · يخرج من التشغيل | `Verification/play-report.txt` · `Verification/console.txt` · `Verification/Screenshots/01..05.png` |
+| **`TLC → 12 · تقرير التحقق الشامل`** | يفحص المشاهد · يبني الـ controller لو ناقص · يقرا نوع كل FBX ويطبع الـ Avatar و`isHuman` · يعد Missing Scripts في `Play` · الموارد · إعدادات المنصة | `VerificationOut/editor-report.txt` |
+| **`TLC → 13 · تشغيل تلقائي + لقطات + سجل`** | يفتح `Play.unity` · يشغّل · يستنى ثانية · يدفع العصا لقدام · يجري · يلفّ الكاميرا · يبعت زر التفاعل · يقيس السرعة وقيم الـ Animator · يصوّر 5 لقطات · يخرج من التشغيل | `VerificationOut/play-report.txt` · `VerificationOut/console.txt` · `VerificationOut/Screenshots/01..05.png` |
 | **`TLC → 14 · فتح مجلد التحقق`** | يفتح المجلد | — |
 
 الاختبار التلقائي بيقفل السينمائية الافتتاحية **في الذاكرة بس** عشان القياس يبدأ
@@ -119,13 +119,13 @@ Android SDK / adb     : غير موجود        → لا بناء APK
 
 1. Unity Hub → Add project → مجلد `THE_LAST_CONTRACT` → افتح بـ **6000.0.28f1**.
 2. `TLC → 0 · إعداد المشروع للأندرويد` (مرة واحدة).
-3. `TLC → 12 · تقرير التحقق الشامل` → افتح `Verification/editor-report.txt`.
+3. `TLC → 12 · تقرير التحقق الشامل` → افتح `VerificationOut/editor-report.txt`.
    **المطلوب:** كل السطور ✓ — وخصوصاً `Avatar صالح و Humanoid — isHuman = true` ×4
    و`TLC_Character.controller موجود`.
 4. `TLC → 13 · تشغيل تلقائي + لقطات + سجل` → استنى ~10 ثواني.
-5. راجع `Verification/Screenshots/` — لازم تشوف آدم والشقة والكاميرا والعصا.
+5. راجع `VerificationOut/Screenshots/` — لازم تشوف آدم والشقة والكاميرا والعصا.
    لو الشاشة سودا أو الشخصية وردي، **ده دليل إن حاجة مكسورة** — بلّغني بالصورة.
-6. راجع `Verification/play-report.txt`: لازم تلاقي:
+6. راجع `VerificationOut/play-report.txt`: لازم تلاقي:
    - سرعة السكون ≈ 0.00
    - سرعة المشي > 0.5
    - أعلى سرعة عند الجري > 3.0

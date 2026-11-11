@@ -30,7 +30,7 @@ namespace TLC.EditorTools
     ///   TLC → 8 · تقرير التحقق الشامل            (فحص محرر، من غير تشغيل)
     ///   TLC → 9 · تشغيل تلقائي + لقطات + سجل     (بيقتح Play ويصوّر ويخرج)
     ///
-    /// المخرجات في مجلد Verification/ جوه المشروع.
+    /// المخرجات في مجلد VerificationOut/ جوه المشروع (اسم مميّز عن VERIFICATION/ المتعقَّب).
     /// </summary>
     public static class VerificationRunner
     {
@@ -39,7 +39,7 @@ namespace TLC.EditorTools
         const string ControllerPath = "Assets/_Project/Resources/Animators/TLC_Character.controller";
 
         static string ProjectRoot => Path.GetDirectoryName(Application.dataPath);
-        static string OutDir => Path.Combine(ProjectRoot, "Verification");
+        static string OutDir => Path.Combine(ProjectRoot, "VerificationOut");
         static string ShotDir => Path.Combine(OutDir, "Screenshots");
 
         // ═══════════════════════ ١) فحص محرر ═══════════════════════
@@ -187,7 +187,7 @@ namespace TLC.EditorTools
             if (fail == 0) Debug.Log(report);
             else Debug.LogError(report);
 
-            Debug.Log($"[TLC/Verify] التقرير اتكتب في Verification/editor-report.txt ({pass}/{pass + fail})");
+            Debug.Log($"[TLC/Verify] التقرير اتكتب في VerificationOut/editor-report.txt ({pass}/{pass + fail})");
         }
 
         // ═══════════════════ ٢) تشغيل تلقائي + لقطات ═══════════════════
@@ -248,7 +248,7 @@ namespace TLC.EditorTools
             EditorApplication.update += Tick;
             EditorApplication.isPlaying = true;
 
-            Debug.Log("[TLC/Verify] بدأ الاختبار التلقائي — لقطات + قياسات في Verification/.");
+            Debug.Log("[TLC/Verify] بدأ الاختبار التلقائي — لقطات + قياسات في VerificationOut/.");
         }
 
         static void OnLog(string condition, string stack, LogType type)
@@ -395,7 +395,7 @@ namespace TLC.EditorTools
             Application.logMessageReceived -= OnLog;
             EditorApplication.isPlaying = false;
 
-            Debug.Log("[TLC/Verify] خلص. المخرجات في Verification/ " +
+            Debug.Log("[TLC/Verify] خلص. المخرجات في VerificationOut/ " +
                       "(play-report.txt · console.txt · Screenshots/). " +
                       "شوف اللقطات واتأكد إن آدم والشقة باينين فعلاً قبل أي حكم.");
         }

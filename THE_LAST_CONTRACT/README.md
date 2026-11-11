@@ -15,7 +15,7 @@
 2. افتح بـ **Unity 6000.0.28f1** (أول استيراد: 5–15 دقيقة)
 3. **`TLC → 0 · إعداد المشروع للأندرويد`** (مرة واحدة)
 4. **`TLC → 5 · فحص إعدادات ومشاهد المشروع`** → لازم يطلع: `Missing Scripts: 0`
-5. **`TLC → 12 · تقرير التحقق الشامل`** → `Verification/editor-report.txt`
+5. **`TLC → 12 · تقرير التحقق الشامل`** → `VerificationOut/editor-report.txt`
 6. **`TLC → 13 · تشغيل تلقائي + لقطات + سجل`** → لقطات + Console حقيقيين
 7. افتح `Assets/_Project/Scenes/Main.unity` → **Play** (قائمة) أو
    `Assets/_Project/Scenes/Play.unity` → **Play** (لعب مباشر)
