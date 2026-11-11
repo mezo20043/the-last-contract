@@ -1106,10 +1106,18 @@ namespace TLC.Bootstrap
             if (act == _lastAct) return;
             _lastAct = act;
 
-            var locKind = EnvironmentLibrary.LocationForAct(act);
+            // A3: أرقام ch2/ch3 ("1"/"2"/"3"/"end") محتاجة سياق الفصل، وإلا بتسقط على
+            // Apartment ⇒ الفصلين كاملين جوه شقة آدم.
+            string chapterId = _state != null ? _state.ChapterId : null;
+            var locKind = EnvironmentLibrary.LocationForAct(act, chapterId);
             var set = UseLocation(locKind);
 
-            Debug.Log($"[TLC/Act] المشهد: {act} → الموقع: {set.DisplayName}");
+            string missing = EnvironmentLibrary.MissingEnvironmentFor(act, chapterId);
+            if (missing != null)
+                Debug.LogWarning($"[TLC/Act/A3] بيئة ناقصة: {missing} · (act='{act}', chapter='{chapterId}') → " +
+                                 $"بنستخدم {set.DisplayName}");
+
+            Debug.Log($"[TLC/Act] المشهد: {act} (فصل {chapterId ?? "?"}) → الموقع: {set.DisplayName}");
 
             // اللاعب على نقطة الظهور بتاعة الموقع
             if (_player != null && set != null)

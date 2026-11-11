@@ -84,6 +84,84 @@ namespace TLC.World
             }
         }
 
+        // ─────────────────────── A3: مشاهد الفصلين ٢ و٣ ───────────────────────
+        //
+        // chapter02 و chapter03 بيستخدموا `act` = "1" / "2" / "3" / "end"
+        // (أرقام مش أسماء) — والقيمة دي كانت بتسقط على `default` ⇒ Apartment
+        // ⇒ الفصلين كاملين كانوا بيتلعبوا جوه شقة آدم.
+        //
+        // الحل: ربط صريح لكل (فصل، act) بالبيئات **الموجودة فعلًا** في المشروع:
+        //   ch2 act=1   → Apartment     (بيت العيلة في العباسي — النص: "دخل البيت الأول")
+        //   ch2 act=2   → Newsroom      (مكتب ليلى الصحفي — مصدر مشاهد li في ch2)
+        //   ch2 act=end → Apartment     (نهايات ch2)
+        //   ch3 act=1   → Apartment     (مدخل مستودع عشرين — مرحلي، لا توجد بيئة مستودع)
+        //   ch3 act=3   → Police        (غرفة التحقيق المقفولة — النص: "غرفة تحقيق مقفولة")
+        //   ch3 act=end → Archive       (الحساب/الأرشيف — أقرب بيئة موجودة)
+        //
+        // ⚠️ الهوامش المتبقية مسجّلة كميزات ناقصة (مش بيئات مخترعة).
+
+        /// <summary>مفتاح نصي موحّد يتعامل مع أسماء الفصول كـ"chapter02"/"ch2"/"2".</summary>
+        public static string NormalizeChapterKey(string chapterId)
+        {
+            if (string.IsNullOrEmpty(chapterId)) return null;
+            string c = chapterId.Trim().ToLowerInvariant();
+            if (c.EndsWith(".json")) c = c.Substring(0, c.Length - 5);
+            if (c.StartsWith("story/")) c = c.Substring(6);
+            if (c.StartsWith("chapter")) c = c.Substring(7);
+            else if (c.StartsWith("ch")) c = c.Substring(2);
+            if (c.StartsWith("0")) c = c.TrimStart('0');
+            return c;   // "1" / "2" / "3"
+        }
+
+        /// <summary>
+        /// A3: نفس LocationForAct لكن مع سياق الفصل — عشان أرقام ch2/ch3
+        /// (1/2/3/end) متسقطش على Apartment بالغلط.
+        /// لو الفصل مش معروف بنرجع لـLocationForAct (سلوك ch1 كما هو).
+        /// </summary>
+        public static Location LocationForAct(string act, string chapterId)
+        {
+            string ch = NormalizeChapterKey(chapterId);
+
+            if (ch == "2")
+            {
+                switch (act)
+                {
+                    case "1":   return Location.Apartment;   // بيت العيلة (العباسي)
+                    case "2":   return Location.Newsroom;    // مكتب ليلى الصحفي
+                    case "end": return Location.Apartment;   // نهايات الفصل التاني
+                }
+                if (!string.IsNullOrEmpty(act) && act.StartsWith("scene"))
+                    return LocationForAct(act);          // لو البيانات اتوسّعت بأسماء ch1
+                return Location.Apartment;
+            }
+
+            if (ch == "3")
+            {
+                switch (act)
+                {
+                    case "1":   return Location.Apartment;   // مدخل مستودع عشرين (بديل مؤقت)
+                    case "3":   return Location.Police;      // غرفة التحقيق المقفولة
+                    case "end": return Location.Archive;     // الحساب/الأرشيف
+                }
+                if (!string.IsNullOrEmpty(act) && act.StartsWith("scene"))
+                    return LocationForAct(act);
+                return Location.Apartment;
+            }
+
+            return LocationForAct(act);   // الفصل الأول (أو فصل غير معروف) — بلا تغيير
+        }
+
+        /// <summary>هل (الفصل، act) ده بيئة ناقصة في المشروع؟ (للتسجيل في التقرير)</summary>
+        public static string MissingEnvironmentFor(string act, string chapterId)
+        {
+            string ch = NormalizeChapterKey(chapterId);
+            if (ch == "2" && act == "1") return "بيت العيلة (العباسي) — لا توجد بيئة منزل غير شقة آدم";
+            if (ch == "3" && act == "1") return "مستودع عشرين (داخلي/خارجي) — لا توجد بيئة مستودع";
+            if (ch == "3" && act == "3") return "غرفة تحقيق مقفولة مخصّصة — بنستخدم Police الموجود";
+            if (ch == "3" && act == "end") return "أرشيف/ساحة الحساب — بنستخدم Archive الموجود";
+            return null;
+        }
+
         /// <summary>
         /// A2: اسم مكان من اللقطة الواسعة (wide_cafe / wide_archive / wide_newsroom /
         /// wide_police / wide_office / wide_apartment …) → Location. للمراسي فقط،
